@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakka Secondary School</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Modern Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Additional page-specific styles */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 0;
+            margin: 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        /* Removed hero glow effects */
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .hero-section h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+        
+        .hero-section .lead {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .hero-section .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero-section .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .hero-section .btn:hover::before {
+            left: 100%;
+        }
+        
+        .scroll-indicator {
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-indicator:hover {
+            color: white;
+        }
+        
+        
+        /* Body padding for fixed navbar */
+        body {
+            padding-top: 0;
+        }
+        
+        /* Ensure hero section accounts for fixed navbar */
+        .hero-section {
+            margin-top: 0;
+        }
+        
+        .stats-counter {
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .scroll-indicator {
+            display: inline-block;
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .scroll-indicator:hover {
+            color: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .hero-stats {
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        .hero-section h1 {
+            line-height: 1.2;
+        }
+        
+        .hero-section .lead {
+            /* Clean text without shadows */
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/images/image.png" alt="Bakka Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="campus-life.html">Campus Life</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Quick Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-award me-2"></i>Excellence in Education Since 1985
+                </div>
+                <h1 class="display-1 fw-bold mb-5" data-aos="fade-up" data-aos-delay="300">
+                    Bakka Secondary School
+                </h1>
+                <div class="d-flex justify-content-center gap-4 flex-wrap" data-aos="fade-up" data-aos-delay="600">
+                    <a href="about.html" class="btn btn-primary btn-lg px-5 py-3">
+                        <i class="fas fa-graduation-cap me-2"></i>Discover More
+                    </a>
+                    <a href="#contact" class="btn btn-outline btn-lg px-5 py-3">
+                        <i class="fas fa-phone me-2"></i>Get In Touch
+                    </a>
+                </div>
+                <div class="mt-5" data-aos="fade-up" data-aos-delay="700">
+                    <a href="#about" class="scroll-indicator">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stats-counter">
+                        <div class="counter-number" data-count="1200">0</div>
+                        <p class="mb-0">Students</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-counter">
+                        <div class="counter-number" data-count="80">0</div>
+                        <p class="mb-0">Teachers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-counter">
+                        <div class="counter-number" data-count="38">0</div>
+                        <p class="mb-0">Years</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-counter">
+                        <div class="counter-number" data-count="95">0</div>
+                        <p class="mb-0">% Success</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title text-start">About Our School</h2>
+                    <p class="lead">Bakka Secondary School is committed to providing quality education that nurtures students' talents and prepares them for future challenges.</p>
+                    <p>We believe in holistic development through academic excellence, character building, and extracurricular engagement. Our experienced faculty and modern facilities create an environment where every student can thrive.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="about.html" class="btn btn-primary">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </a>
+                        <a href="facilities.html" class="btn btn-outline">
+                            <i class="fas fa-building me-2"></i>Our Facilities
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1524178232409-2a99371cef13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="School Building" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Preview Section -->
+    <section id="courses" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center">Our Courses</h2>
+            <p class="text-center mb-5">We offer a wide range of courses to help students achieve their academic goals and prepare for their future careers.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1560785496-3c9d27877182?ixlib=rb-4.0.3" class="card-img-top" alt="Science Course">
+                        <div class="card-body">
+                            <h5 class="card-title">Science Program</h5>
+                            <p class="card-text">Our science program offers comprehensive education in physics, chemistry, and biology with state-of-the-art laboratories.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?ixlib=rb-4.0.3" class="card-img-top" alt="Arts Course">
+                        <div class="card-body">
+                            <h5 class="card-title">Arts Program</h5>
+                            <p class="card-text">The arts program encourages creative expression through literature, history, fine arts, and performing arts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3" class="card-img-top" alt="Business Course">
+                        <div class="card-body">
+                            <h5 class="card-title">Business Program</h5>
+                            <p class="card-text">Our business program prepares students for careers in entrepreneurship, economics, and commerce.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="courses.html" class="btn btn-primary">
+                    <i class="fas fa-book-open me-2"></i>See All Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Preview Section -->
+    <section id="facilities" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Facilities</h2>
+            <p class="text-center mb-5">We provide modern facilities to support our students' learning and development with state-of-the-art equipment and resources.</p>
+            
+            <div class="row text-center">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <i class="fas fa-book-open facility-icon"></i>
+                            <h5 class="card-title">Library</h5>
+                            <p class="card-text">Our library has over 20,000 books, digital resources, and quiet study areas for students.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <i class="fas fa-flask facility-icon"></i>
+                            <h5 class="card-title">Science Lab</h5>
+                            <p class="card-text">Modern laboratories equipped with the latest technology for physics, chemistry, and biology experiments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <i class="fas fa-futbol facility-icon"></i>
+                            <h5 class="card-title">Sports Complex</h5>
+                            <p class="card-text">Our sports facilities include a football field, basketball court, swimming pool, and indoor gymnasium.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="facilities.html" class="btn btn-primary">
+                    <i class="fas fa-building me-2"></i>See All Facilities
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Life Section -->
+    <section id="campus-life" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center">Campus Life</h2>
+            <p class="text-center mb-5">Experience the vibrant life at Bakka Secondary School beyond the classroom with exciting activities and events.</p>
+            
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <div id="campusCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item active">
+                                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3" class="d-block w-100" alt="Student Activity">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Annual Science Fair</h5>
+                                    <p>Students showcase their innovative projects at our annual science fair.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3" class="d-block w-100" alt="Sports Day">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Sports Day</h5>
+                                    <p>Annual sports day promotes teamwork and healthy competition.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3" class="d-block w-100" alt="Art Exhibition">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Art Exhibition</h5>
+                                    <p>Student artwork displayed in our annual exhibition.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#campusCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#campusCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="campus-life.html" class="btn btn-primary">
+                    <i class="fas fa-users me-2"></i>Explore Campus Life
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Contact Us</h2>
+            <p class="text-center mb-5">We'd love to hear from you. Get in touch with us!</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, Academic City, AC 12345</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@bakkaschool.edu</p>
+                    </div>
+                    <div class="mt-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.621465758367!2d-74.00594938459418!3d40.71278267933066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1c77d14acf%3A0x5d5d0d183c735076!2sEducation%20St%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1645123456789!5m2!1sen!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" class="rounded"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card p-4">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Bakka Secondary School</h5>
+                    <p>Excellence in Education Since 1985</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">Facilities</a></li>
+                        <li><a href="#">Campus Life</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p>&copy; 2023 Bakka Secondary School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Modern Effects JS -->
+    <script src="assets/js/modern-effects.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+        
+        // Initialize counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats-counter');
+        if (statsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            observer.observe(statsSection);
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navbar transparency effect - transparent until hero section ends
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const heroSection = document.querySelector('.hero-section');
+            const heroHeight = heroSection.offsetHeight;
+            
+            if (window.scrollY > heroHeight - 100) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('scrolled');
+            } else {
+                navbar.classList.remove('solid');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+        
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Enhanced form validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                // Show success message with modern styling
+                const successMessage = document.createElement('div');
+                successMessage.className = 'alert alert-success mt-3';
+                successMessage.innerHTML = `
+                    <i class="fas fa-check-circle me-2"></i>
+                    Thank you for your message! We will get back to you soon.
+                `;
+                this.appendChild(successMessage);
+                this.reset();
+                
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

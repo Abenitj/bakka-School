@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life - Bakka Secondary School</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Modern Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --bg-color: #F6F1E9;
+            --primary: #FFD93D;
+            --accent: #FF9A00;
+            --text-color: #4F200D;
+            --light-text: #6c757d;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            margin: 0 10px;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 15px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0 60px;
+            color: white;
+        }
+        
+        .activity-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .carousel-item {
+            height: 500px;
+        }
+        
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+        
+        .carousel-caption {
+            background: rgba(79, 32, 13, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .gallery-img {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://via.placeholder.com/40x40/FFD93D/4F200D?text=B" alt="Bakka Logo" class="d-inline-block align-text-top me-2 rounded-circle">
+                Bakka Secondary School
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="campus-life.html">Campus Life</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold" data-aos="fade-up">Campus Life</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">Where Learning Extends Beyond the Classroom</p>
+        </div>
+    </section>
+
+    <!-- Campus Life Intro Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead" data-aos="fade-up">At Bakka Secondary School, we believe that education extends far beyond textbooks and classrooms. Our vibrant campus life offers students countless opportunities to explore interests, develop talents, and build lasting friendships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Life Carousel -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Campus Life at Bakka Secondary School</h2>
+            
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <div id="campusLifeCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#campusLifeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#campusLifeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#campusLifeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#campusLifeCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item active">
+                                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3" class="d-block w-100" alt="Sports Day">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Annual Sports Day</h3>
+                                    <p>Students compete in various athletic events showcasing teamwork and sportsmanship.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3" class="d-block w-100" alt="Science Fair">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Science & Innovation Fair</h3>
+                                    <p>Students present their innovative projects to teachers and community members.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-4.0.3" class="d-block w-100" alt="Music Performance">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Annual Music Concert</h3>
+                                    <p>Our talented musicians and performers showcase their skills in our annual concert.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3" class="d-block w-100" alt="Debate Competition">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Debate Competition</h3>
+                                    <p>Students engage in thoughtful discourse on important topics during our annual debate tournament.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#campusLifeCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#campusLifeCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Activities Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Student Activities & Clubs</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-music activity-icon"></i>
+                            <h3 class="card-title">Performing Arts</h3>
+                            <p class="card-text">Our performing arts programs include choir, band, orchestra, and drama club. Students perform in seasonal concerts and annual theater productions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-robot activity-icon"></i>
+                            <h3 class="card-title">STEM Club</h3>
+                            <p class="card-text">The STEM club engages students in robotics, coding, and scientific research projects. Members compete in regional and national science fairs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-basketball-ball activity-icon"></i>
+                            <h3 class="card-title">Athletics</h3>
+                            <p class="card-text">We offer a wide range of sports including basketball, soccer, volleyball, track and field, and swimming. Our teams compete in interschool tournaments.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-paint-brush activity-icon"></i>
+                            <h3 class="card-title">Art & Design</h3>
+                            <p class="card-text">The art club allows students to explore various mediums including painting, sculpture, digital art, and photography. Student work is displayed in annual exhibitions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-hands-helping activity-icon"></i>
+                            <h3 class="card-title">Community Service</h3>
+                            <p class="card-text">Our community service club organizes volunteer activities, charity drives, and environmental initiatives to help students develop social responsibility.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-book activity-icon"></i>
+                            <h3 class="card-title">Debate & Journalism</h3>
+                            <p class="card-text">Students develop critical thinking and communication skills through debate team and school newspaper activities, covering campus events and issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Gallery Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Campus Events Gallery</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Sports Event">
+                        <div class="mt-2">
+                            <h5>Annual Sports Day</h5>
+                            <p>Students participating in track events</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1498247041572-2c4f4ceeb4c5?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Cultural Festival">
+                        <div class="mt-2">
+                            <h5>Cultural Festival</h5>
+                            <p>Traditional dance performance</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Science Fair">
+                        <div class="mt-2">
+                            <h5>Science Fair</h5>
+                            <p>Students presenting their projects</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Library Event">
+                        <div class="mt-2">
+                            <h5>Reading Week</h5>
+                            <p>Author visit and book signing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1549056572-75914d6d7e1a?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Graduation">
+                        <div class="mt-2">
+                            <h5>Graduation Ceremony</h5>
+                            <p>Class of 2023 celebration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Field Trip">
+                        <div class="mt-2">
+                            <h5>Educational Field Trip</h5>
+                            <p>History class visiting the museum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Student Experiences</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3" alt="Student" class="rounded-circle" width="100" height="100">
+                            </div>
+                            <h5 class="card-title text-center">Michael Chen</h5>
+                            <p class="text-muted text-center">Grade 11, STEM Club President</p>
+                            <p class="card-text">"Being part of the STEM club has been the highlight of my high school experience. The robotics competition last semester taught me so much about teamwork and problem-solving."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3" alt="Student" class="rounded-circle" width="100" height="100">
+                            </div>
+                            <h5 class="card-title text-center">Sophia Williams</h5>
+                            <p class="text-muted text-center">Grade 10, Drama Club</p>
+                            <p class="card-text">"I was nervous about joining the drama club, but it's been an incredible experience. Our spring production was amazing, and I've made friends I'll keep for life."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3" alt="Student" class="rounded-circle" width="100" height="100">
+                            </div>
+                            <h5 class="card-title text-center">David Johnson</h5>
+                            <p class="text-muted text-center">Grade 12, Basketball Team Captain</p>
+                            <p class="card-text">"The basketball program here has taught me discipline and leadership. Our coach focuses not just on winning games but on building character and sportsmanship."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Bakka Secondary School</h5>
+                    <p>Excellence in Education Since 1985</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p>&copy; 2023 Bakka Secondary School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Modern Effects JS -->
+    <script src="assets/js/modern-effects.js"></script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Facilities - Bakka Secondary School</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Modern Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --bg-color: #F6F1E9;
+            --primary: #FFD93D;
+            --accent: #FF9A00;
+            --text-color: #4F200D;
+            --light-text: #6c757d;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            margin: 0 10px;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 15px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .facility-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1591123120675-6f7f1eae0c10?ixlib=rb-4.0.3') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0 60px;
+            color: white;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://via.placeholder.com/40x40/FFD93D/4F200D?text=B" alt="Bakka Logo" class="d-inline-block align-text-top me-2 rounded-circle">
+                Bakka Secondary School
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="campus-life.html">Campus Life</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold" data-aos="fade-up">Our Facilities</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">State-of-the-art learning environment for our students</p>
+        </div>
+    </section>
+
+    <!-- Facilities Intro Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead" data-aos="fade-up">At Bakka Secondary School, we believe that excellent facilities are essential for providing a comprehensive education. Our campus features modern, well-equipped spaces designed to enhance learning and foster creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Grid Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Explore Our Facilities</h2>
+            
+            <div class="row">
+                <!-- Library -->
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3" class="card-img-top" alt="School Library">
+                        <div class="card-body">
+                            <h3 class="card-title">Modern Library</h3>
+                            <p class="card-text">Our spacious library houses over 20,000 books, periodicals, and digital resources. It features quiet study areas, group collaboration spaces, and computer stations for research. The library is open beyond school hours to support our students' learning needs.</p>
+                            <ul>
+                                <li>Extensive collection of reference materials</li>
+                                <li>Digital catalog and online resources</li>
+                                <li>Quiet reading and study areas</li>
+                                <li>Professional librarian support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Science Labs -->
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1581094288338-231b058b38b8?ixlib=rb-4.0.3" class="card-img-top" alt="Science Laboratory">
+                        <div class="card-body">
+                            <h3 class="card-title">Science Laboratories</h3>
+                            <p class="card-text">Our fully-equipped science labs provide students with hands-on experience in physics, chemistry, and biology. Designed to meet international safety standards, these spaces foster scientific inquiry and experimentation.</p>
+                            <ul>
+                                <li>Dedicated labs for each science discipline</li>
+                                <li>Modern equipment and instruments</li>
+                                <li>Safety-first design with emergency equipment</li>
+                                <li>Interactive learning technology</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Computer Lab -->
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1590402494610-2c7a0d599afd?ixlib=rb-4.0.3" class="card-img-top" alt="Computer Lab">
+                        <div class="card-body">
+                            <h3 class="card-title">Computer Laboratories</h3>
+                            <p class="card-text">Our computer labs feature the latest technology with high-speed internet connectivity. Students learn programming, digital design, and research skills in these modern facilities.</p>
+                            <ul>
+                                <li>High-performance computers</li>
+                                <li>Specialized software for programming and design</li>
+                                <li>3D printing and robotics equipment</li>
+                                <li>High-speed internet connectivity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sports Facilities -->
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1549063357-5d6d94a0d5e0?ixlib=rb-4.0.3" class="card-img-top" alt="Sports Facilities">
+                        <div class="card-body">
+                            <h3 class="card-title">Sports Facilities</h3>
+                            <p class="card-text">We believe in the importance of physical education and offer extensive sports facilities including a full-sized soccer field, basketball and volleyball courts, a swimming pool, and indoor gymnasium.</p>
+                            <ul>
+                                <li>Olympic-sized swimming pool</li>
+                                <li>Indoor basketball and badminton courts</li>
+                                <li>Fully-equipped gymnasium</li>
+                                <li>Track and field facilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Classrooms -->
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3" class="card-img-top" alt="Modern Classroom">
+                        <div class="card-body">
+                            <h3 class="card-title">Modern Classrooms</h3>
+                            <p class="card-text">Our classrooms are designed to facilitate interactive learning with comfortable furniture, natural lighting, and technology integration. Each classroom is equipped with smart boards and multimedia capabilities.</p>
+                            <ul>
+                                <li>Interactive whiteboards in every classroom</li>
+                                <li>Flexible seating arrangements</li>
+                                <li>Natural lighting and climate control</li>
+                                <li>Technology integration points</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Auditorium -->
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1567446537738-74804ee3a9bd?ixlib=rb-4.0.3" class="card-img-top" alt="School Auditorium">
+                        <div class="card-body">
+                            <h3 class="card-title">Auditorium & Performing Arts</h3>
+                            <p class="card-text">Our 500-seat auditorium hosts school assemblies, performances, and guest lectures. The performing arts department includes dedicated spaces for music, dance, and drama.</p>
+                            <ul>
+                                <li>500-seat capacity auditorium</li>
+                                <li>Professional sound and lighting systems</li>
+                                <li>Music practice rooms</li>
+                                <li>Dance studio with mirrored walls</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Facilities Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">More Facilities</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-utensils facility-icon"></i>
+                            <h3 class="card-title">Cafeteria</h3>
+                            <p class="card-text">Our cafeteria serves nutritious meals prepared in a modern kitchen. We accommodate various dietary needs and promote healthy eating habits.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-heartbeat facility-icon"></i>
+                            <h3 class="card-title">Health Center</h3>
+                            <p class="card-text">The school health center is staffed with a qualified nurse and provides first aid, health screenings, and promotes wellness programs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-bus facility-icon"></i>
+                            <h3 class="card-title">Transportation</h3>
+                            <p class="card-text">We provide safe and reliable transportation services with GPS-tracked buses covering all major routes in the area.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Gallery Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Facilities Gallery</h2>
+            
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Library Interior">
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Science Experiment">
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="Sports Day">
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1591123120675-6f7f1eae0c10?ixlib=rb-4.0.3" class="img-fluid rounded shadow" alt="School Building">
+                </div>
+            </div>
+            
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="contact.html" class="btn btn-primary btn-lg">Schedule a Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Bakka Secondary School</h5>
+                    <p>Excellence in Education Since 1985</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p>&copy; 2023 Bakka Secondary School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Modern Effects JS -->
+    <script src="assets/js/modern-effects.js"></script>
+</body>
+</html>
