@@ -13,6 +13,7 @@ class ModernEffects {
         this.initLoadingStates();
         this.initFormEnhancements();
         this.initCursorEffects();
+        this.initGradeFilter();
     }
 
     // Create floating particle background
@@ -282,6 +283,111 @@ class ModernEffects {
         document.addEventListener('mouseup', () => {
             cursor.style.transform = 'scale(1)';
         });
+    }
+
+    // Initialize grade filter functionality
+    initGradeFilter() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const courseItems = document.querySelectorAll('.course-item');
+        const showMoreContainer = document.getElementById('show-more-container');
+        
+        if (filterButtons.length === 0 || courseItems.length === 0) return;
+        
+        // Initialize with "All Grades" showing only 4 courses as sample
+        this.currentFilter = 'all';
+        this.showCoursesByCount(courseItems, 4);
+        if (showMoreContainer) {
+            showMoreContainer.style.display = 'none'; // Hide show more button
+        }
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Get the grade filter value
+                const gradeFilter = button.getAttribute('data-grade');
+                this.currentFilter = gradeFilter;
+                
+                // Filter courses with smooth animation
+                this.filterCourses(courseItems, gradeFilter);
+            });
+        });
+    }
+    
+    // Filter courses based on grade
+    filterCourses(courseItems, gradeFilter) {
+        const showMoreContainer = document.getElementById('show-more-container');
+        
+        if (gradeFilter === 'all') {
+            // For "All Grades" - show only 4 courses as sample
+            this.showCoursesByCount(courseItems, 4);
+            if (showMoreContainer) {
+                showMoreContainer.style.display = 'none';
+            }
+        } else {
+            // For specific grades - show all available courses for that grade
+            courseItems.forEach((item) => {
+                const itemGrade = item.getAttribute('data-grade');
+                
+                if (itemGrade === gradeFilter) {
+                    item.classList.remove('hidden');
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                    item.classList.add('hidden');
+                }
+            });
+            
+            if (showMoreContainer) {
+                showMoreContainer.style.display = 'none';
+            }
+        }
+        
+        // Re-initialize AOS for newly visible items
+        if (typeof AOS !== 'undefined') {
+            setTimeout(() => {
+                AOS.refresh();
+            }, 500);
+        }
+    }
+    
+    // Show courses by count (for "All Grades" sample)
+    showCoursesByCount(courseItems, count) {
+        courseItems.forEach((item, index) => {
+            setTimeout(() => {
+                if (index < count) {
+                    item.classList.remove('hidden');
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                    item.classList.add('hidden');
+                }
+            }, index * 30);
+        });
+        
+        // Re-initialize AOS
+        if (typeof AOS !== 'undefined') {
+            setTimeout(() => {
+                AOS.refresh();
+            }, 300);
+        }
+    }
+    
+    // Get visible courses based on current filter
+    getVisibleCourses(courseItems) {
+        if (this.currentFilter === 'all') {
+            return Array.from(courseItems);
+        } else {
+            return Array.from(courseItems).filter(item => 
+                item.getAttribute('data-grade') === this.currentFilter
+            );
+        }
     }
 
     // Utility function to validate email

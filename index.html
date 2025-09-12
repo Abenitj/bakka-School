@@ -208,9 +208,6 @@
             line-height: 1.2;
         }
         
-        .hero-section .lead {
-            /* Clean text without shadows */
-        }
         
         .navbar.scrolled {
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -333,7 +330,7 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="position-relative">
-                        <img src="https://images.unsplash.com/photo-1524178232409-2a99371cef13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="School Building" class="img-fluid rounded">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Students in Classroom" class="img-fluid rounded">
                     </div>
                 </div>
             </div>
@@ -341,45 +338,291 @@
     </section>
 
     <!-- Courses Preview Section -->
-    <section id="courses" class="py-5 bg-white">
+    <section id="courses" class="py-5 bg-light">
         <div class="container">
-            <h2 class="section-title text-center">Our Courses</h2>
-            <p class="text-center mb-5">We offer a wide range of courses to help students achieve their academic goals and prepare for their future careers.</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title">Our Courses</h2>
+                    <p class="lead">We offer a comprehensive range of courses designed to help students achieve their academic goals and prepare for successful future careers.</p>
+                </div>
+            </div>
             
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1560785496-3c9d27877182?ixlib=rb-4.0.3" class="card-img-top" alt="Science Course">
-                        <div class="card-body">
-                            <h5 class="card-title">Science Program</h5>
-                            <p class="card-text">Our science program offers comprehensive education in physics, chemistry, and biology with state-of-the-art laboratories.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?ixlib=rb-4.0.3" class="card-img-top" alt="Arts Course">
-                        <div class="card-body">
-                            <h5 class="card-title">Arts Program</h5>
-                            <p class="card-text">The arts program encourages creative expression through literature, history, fine arts, and performing arts.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100">
-                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3" class="card-img-top" alt="Business Course">
-                        <div class="card-body">
-                            <h5 class="card-title">Business Program</h5>
-                            <p class="card-text">Our business program prepares students for careers in entrepreneurship, economics, and commerce.</p>
+            <!-- Grade Filter -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="grade-filter">
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-grade="all">
+                                <i class="fas fa-graduation-cap me-2"></i>All Grades
+                            </button>
+                            <button class="filter-btn" data-grade="grade9">
+                                <i class="fas fa-star me-2"></i>Grade 9
+                            </button>
+                            <button class="filter-btn" data-grade="grade10">
+                                <i class="fas fa-star me-2"></i>Grade 10
+                            </button>
+                            <button class="filter-btn" data-grade="grade11">
+                                <i class="fas fa-star me-2"></i>Grade 11
+                            </button>
+                            <button class="filter-btn" data-grade="grade12">
+                                <i class="fas fa-star me-2"></i>Grade 12
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-4" data-aos="fade-up">
-                <a href="courses.html" class="btn btn-primary">
-                    <i class="fas fa-book-open me-2"></i>See All Courses
-                </a>
+            <div class="row g-4" id="courses-container">
+                <!-- Grade 9 Courses -->
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade9" data-aos="fade-up" data-aos-delay="0">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 9</div>
+                            <div class="course-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h5 class="course-title">Mathematics</h5>
+                            <p class="course-description">Foundation mathematical concepts and problem-solving skills.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade9" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 9</div>
+                            <div class="course-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h5 class="course-title">English Language</h5>
+                            <p class="course-description">Basic language skills, grammar, and reading comprehension.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade9" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 9</div>
+                            <div class="course-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h5 class="course-title">General Science</h5>
+                            <p class="course-description">Introduction to physics, chemistry, and biology concepts.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade9" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 9</div>
+                            <div class="course-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h5 class="course-title">Geography</h5>
+                            <p class="course-description">Basic understanding of Earth's physical and human geography.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grade 10 Courses -->
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade10" data-aos="fade-up" data-aos-delay="0">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 10</div>
+                            <div class="course-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h5 class="course-title">Advanced Mathematics</h5>
+                            <p class="course-description">Intermediate mathematical concepts and algebraic problem-solving.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 10</div>
+                            <div class="course-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h5 class="course-title">Chemistry</h5>
+                            <p class="course-description">Chemical reactions, atomic structure, and laboratory techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 10</div>
+                            <div class="course-icon">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h5 class="course-title">Biology</h5>
+                            <p class="course-description">Cell biology, genetics, and basic biological processes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 10</div>
+                            <div class="course-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h5 class="course-title">English Literature</h5>
+                            <p class="course-description">Literary analysis, creative writing, and communication skills.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade10" data-aos="fade-up" data-aos-delay="400">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 10</div>
+                            <div class="course-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h5 class="course-title">Geography</h5>
+                            <p class="course-description">Physical and human geography, environmental studies, and map skills.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade10" data-aos="fade-up" data-aos-delay="500">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 10</div>
+                            <div class="course-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h5 class="course-title">History</h5>
+                            <p class="course-description">World history, historical analysis, and critical thinking skills.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade10" data-aos="fade-up" data-aos-delay="600">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 10</div>
+                            <div class="course-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h5 class="course-title">Computer Science</h5>
+                            <p class="course-description">Programming fundamentals, digital literacy, and computer applications.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grade 11 Courses -->
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade11" data-aos="fade-up" data-aos-delay="0">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 11</div>
+                            <div class="course-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h5 class="course-title">Pre-Calculus</h5>
+                            <p class="course-description">Advanced mathematical concepts preparing for calculus.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade11" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 11</div>
+                            <div class="course-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h5 class="course-title">Physics</h5>
+                            <p class="course-description">Mechanics, thermodynamics, and wave phenomena.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade11" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 11</div>
+                            <div class="course-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="course-title">Economics</h5>
+                            <p class="course-description">Microeconomics, market systems, and economic principles.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade11" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 11</div>
+                            <div class="course-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h5 class="course-title">Art & Design</h5>
+                            <p class="course-description">Advanced visual arts, design principles, and portfolio development.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grade 12 Courses -->
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade12" data-aos="fade-up" data-aos-delay="0">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 12</div>
+                            <div class="course-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h5 class="course-title">Calculus</h5>
+                            <p class="course-description">Advanced calculus, derivatives, and integration techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 12</div>
+                            <div class="course-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h5 class="course-title">Advanced Physics</h5>
+                            <p class="course-description">Quantum mechanics, relativity, and advanced physics concepts.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 12</div>
+                            <div class="course-icon">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h5 class="course-title">Advanced Biology</h5>
+                            <p class="course-description">Molecular biology, evolution, and advanced biological systems.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 col-sm-6 course-item" data-grade="grade12" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-card h-100">
+                        <div class="course-content">
+                            <div class="course-grade">Grade 12</div>
+                            <div class="course-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h5 class="course-title">Business Studies</h5>
+                            <p class="course-description">Entrepreneurship, management, and business strategy.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -391,16 +634,7 @@
             <p class="text-center mb-5">We provide modern facilities to support our students' learning and development with state-of-the-art equipment and resources.</p>
             
             <div class="row text-center">
-                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="0">
-                    <div class="card h-100 border-0">
-                        <div class="card-body">
-                            <i class="fas fa-book-open facility-icon"></i>
-                            <h5 class="card-title">Library</h5>
-                            <p class="card-text">Our library has over 20,000 books, digital resources, and quiet study areas for students.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="0">
                     <div class="card h-100 border-0">
                         <div class="card-body">
                             <i class="fas fa-flask facility-icon"></i>
@@ -409,81 +643,262 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card h-100 border-0">
                         <div class="card-body">
-                            <i class="fas fa-futbol facility-icon"></i>
-                            <h5 class="card-title">Sports Complex</h5>
-                            <p class="card-text">Our sports facilities include a football field, basketball court, swimming pool, and indoor gymnasium.</p>
+                            <i class="fas fa-laptop-code facility-icon"></i>
+                            <h5 class="card-title">Computer Lab</h5>
+                            <p class="card-text">State-of-the-art computer laboratory with high-speed internet and modern software for digital learning.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-4" data-aos="fade-up">
-                <a href="facilities.html" class="btn btn-primary">
-                    <i class="fas fa-building me-2"></i>See All Facilities
-                </a>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <i class="fas fa-book-open facility-icon"></i>
+                            <h5 class="card-title">Library</h5>
+                            <p class="card-text">Our library has over 20,000 books, digital resources, and quiet study areas for students.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Campus Life Section -->
-    <section id="campus-life" class="py-5 bg-white">
+    <!-- School Gallery Section -->
+    <section id="gallery" class="py-5 bg-light">
         <div class="container">
-            <h2 class="section-title text-center">Campus Life</h2>
-            <p class="text-center mb-5">Experience the vibrant life at Bakka Secondary School beyond the classroom with exciting activities and events.</p>
+            <h2 class="section-title text-center">School Gallery</h2>
+            <p class="text-center mb-5">Explore our modern facilities and vibrant campus life through our professional gallery.</p>
             
-            <div class="row">
-                <div class="col-12" data-aos="fade-up">
-                    <div id="campusCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#campusCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner rounded">
-                            <div class="carousel-item active">
-                                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3" class="d-block w-100" alt="Student Activity">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Annual Science Fair</h5>
-                                    <p>Students showcase their innovative projects at our annual science fair.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3" class="d-block w-100" alt="Sports Day">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Sports Day</h5>
-                                    <p>Annual sports day promotes teamwork and healthy competition.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3" class="d-block w-100" alt="Art Exhibition">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Art Exhibition</h5>
-                                    <p>Student artwork displayed in our annual exhibition.</p>
-                                </div>
+            <!-- Professional Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Row 1 -->
+                <div class="gallery-row">
+                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="0">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Students in Classroom" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Students in Classroom')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5 class="text-white mb-2">Students in Classroom</h5>
+                                <p class="text-white-50 mb-0">Modern learning environment</p>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#campusCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#campusCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                    </div>
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="School Library" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Library')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">School Library</h6>
+                                <p class="text-white-50 mb-0">Knowledge hub</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="gallery-row">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Science Laboratory" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Science Laboratory')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Science Laboratory</h6>
+                                <p class="text-white-50 mb-0">Modern equipment</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Sports Activities" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Sports Activities')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Sports Activities</h6>
+                                <p class="text-white-50 mb-0">Healthy competition</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Computer Lab" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Computer Lab')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Computer Lab</h6>
+                                <p class="text-white-50 mb-0">Digital learning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="gallery-row">
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="500">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Art Exhibition" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Art Exhibition')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Art Exhibition</h6>
+                                <p class="text-white-50 mb-0">Creative expression</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="600">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="School Campus" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Campus')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5 class="text-white mb-2">School Campus</h5>
+                                <p class="text-white-50 mb-0">Beautiful grounds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Gallery Items (Hidden by default) -->
+                <div class="gallery-row gallery-row-hidden">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="700">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Student Activities" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Student Activities')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Student Activities</h6>
+                                <p class="text-white-50 mb-0">Engaging programs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="800">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Music Room" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Music Room')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Music Room</h6>
+                                <p class="text-white-50 mb-0">Creative learning</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="900">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Cafeteria" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Cafeteria')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Cafeteria</h6>
+                                <p class="text-white-50 mb-0">Healthy meals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-row gallery-row-hidden">
+                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="1000">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Auditorium" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Auditorium')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5 class="text-white mb-2">Auditorium</h5>
+                                <p class="text-white-50 mb-0">Events & performances</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="1100">
+                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Playground" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Playground')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Playground</h6>
+                                <p class="text-white-50 mb-0">Fun & recreation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-row gallery-row-hidden">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="1200">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Study Hall" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Study Hall')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Study Hall</h6>
+                                <p class="text-white-50 mb-0">Quiet learning</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="1300">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Gymnasium" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Gymnasium')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Gymnasium</h6>
+                                <p class="text-white-50 mb-0">Physical education</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="1400">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Outdoor Learning" 
+                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
+                             onclick="openModal('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Outdoor Learning')">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h6 class="text-white mb-1">Outdoor Learning</h6>
+                                <p class="text-white-50 mb-0">Nature education</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-4" data-aos="fade-up">
-                <a href="campus-life.html" class="btn btn-primary">
-                    <i class="fas fa-users me-2"></i>Explore Campus Life
-                </a>
+            <!-- Show More Button -->
+            <div class="text-center mt-5" id="gallery-show-more-container">
+                <button class="btn btn-primary btn-lg px-5 py-3" id="gallery-show-more-btn" onclick="toggleGalleryMore()">
+                    <i class="fas fa-plus me-2"></i>Show More Images
+                </button>
             </div>
         </div>
     </section>
+
+    <!-- Gallery Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="galleryModalLabel">Gallery Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img id="modalImage" src="" class="img-fluid w-100" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="py-5">
@@ -576,6 +991,62 @@
     <script src="assets/js/modern-effects.js"></script>
     <!-- Custom JS -->
     <script>
+        // Gallery Modal Function
+        function openModal(imageSrc, imageTitle) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('galleryModalLabel').textContent = imageTitle;
+        }
+        
+        // Gallery Show More Functionality
+        let showingMore = false;
+        
+        function toggleGalleryMore() {
+            const hiddenRows = document.querySelectorAll('.gallery-row-hidden');
+            const showMoreBtn = document.getElementById('gallery-show-more-btn');
+            const showMoreContainer = document.getElementById('gallery-show-more-container');
+            
+            if (!showingMore) {
+                // Show hidden rows with staggered animation
+                hiddenRows.forEach((row, index) => {
+                    setTimeout(() => {
+                        row.classList.add('show');
+                    }, index * 200);
+                });
+                
+                // Update button text and icon
+                showMoreBtn.innerHTML = '<i class="fas fa-minus me-2"></i>Show Less Images';
+                showMoreBtn.classList.add('showing-more');
+                showingMore = true;
+                
+                // Re-initialize AOS for newly visible items
+                if (typeof AOS !== 'undefined') {
+                    setTimeout(() => {
+                        AOS.refresh();
+                    }, 1000);
+                }
+            } else {
+                // Hide rows with animation
+                hiddenRows.forEach((row, index) => {
+                    setTimeout(() => {
+                        row.classList.remove('show');
+                    }, index * 100);
+                });
+                
+                // Update button text and icon
+                showMoreBtn.innerHTML = '<i class="fas fa-plus me-2"></i>Show More Images';
+                showMoreBtn.classList.remove('showing-more');
+                showingMore = false;
+                
+                // Scroll to gallery section smoothly
+                setTimeout(() => {
+                    document.getElementById('gallery').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 500);
+            }
+        }
+        
         // Counter Animation
         function animateCounters() {
             const counters = document.querySelectorAll('.counter-number');

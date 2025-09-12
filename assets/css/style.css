@@ -420,6 +420,769 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 2px;
 }
 
+/* Course Cards */
+.course-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 107, 53, 0.08);
+    text-align: center;
+    position: relative;
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e, #ffd700);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover::before {
+    transform: scaleX(1);
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border-color: rgba(255, 107, 53, 0.15);
+}
+
+.course-content {
+    padding: 35px 20px;
+    position: relative;
+}
+
+.course-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.15);
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.course-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.course-card:hover .course-icon::after {
+    opacity: 0.3;
+}
+
+.course-card:hover .course-icon {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+}
+
+.course-icon i {
+    color: #ffffff;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-icon i {
+    transform: scale(1.1);
+}
+
+.course-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.course-description {
+    color: #7f8c8d;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Grade Filter */
+.grade-filter {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin-bottom: 40px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 45px;
+    color: #666;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: center;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+.filter-btn:hover {
+    color: #ff6b35;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: #ffffff;
+    box-shadow: 0 3px 12px rgba(255, 107, 53, 0.25);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(255, 107, 53, 0.3);
+}
+
+.filter-btn i {
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+/* Course Grade Badge */
+.course-grade {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.2);
+    letter-spacing: 0.5px;
+}
+
+/* Course Filter Animation */
+.course-item {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.course-item.hidden {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+
+.course-item.visible {
+    opacity: 1;
+    pointer-events: auto;
+    display: block;
+}
+
+/* Filter Animation Container */
+#courses-container {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced Professional Masonry Gallery */
+.gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.gallery-item {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: #000;
+    position: relative;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255, 107, 53, 0.1) 0%, 
+        transparent 30%, 
+        transparent 70%, 
+        rgba(247, 147, 30, 0.1) 100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+    filter: contrast(1.1) saturate(1.1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+    filter: contrast(1.2) saturate(1.3) brightness(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(0, 0, 0, 0.4) 50%, 
+        rgba(255, 107, 53, 0.3) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 3;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-content {
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item:hover .gallery-content {
+    transform: translateY(0);
+}
+
+.gallery-content h5,
+.gallery-content h6 {
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+    letter-spacing: 0.8px;
+    position: relative;
+}
+
+.gallery-content h5::after,
+.gallery-content h6::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+    transition: width 0.4s ease;
+}
+
+.gallery-item:hover .gallery-content h5::after,
+.gallery-item:hover .gallery-content h6::after {
+    width: 100%;
+}
+
+.gallery-content p {
+    font-size: 0.9rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Gallery Item Sizes with Enhanced Heights */
+.gallery-item.large {
+    flex: 2;
+    height: 350px;
+}
+
+.gallery-item.medium {
+    flex: 1;
+    height: 350px;
+}
+
+.gallery-item.small {
+    flex: 0.8;
+    height: 350px;
+}
+
+/* Hidden Gallery Rows */
+.gallery-row-hidden {
+    display: none !important;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.gallery-row-hidden.show {
+    display: flex !important;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Show More Button Styling */
+#gallery-show-more-btn {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 15px 40px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+#gallery-show-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+#gallery-show-more-btn:hover::before {
+    left: 100%;
+}
+
+#gallery-show-more-btn:hover {
+    background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4);
+}
+
+#gallery-show-more-btn:active {
+    transform: translateY(-1px);
+}
+
+#gallery-show-more-btn i {
+    transition: transform 0.3s ease;
+}
+
+#gallery-show-more-btn:hover i {
+    transform: rotate(90deg);
+}
+
+#gallery-show-more-btn.showing-more i {
+    transform: rotate(45deg);
+}
+
+/* Special Effects for Different Sizes */
+.gallery-item.large:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item.medium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item.small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Premium Enhanced Gallery Modal */
+.modal-content {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    border: none;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+    color: white;
+    border: none;
+    padding: 25px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.modal-header:hover::before {
+    left: 100%;
+}
+
+.modal-title {
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.btn-close {
+    filter: invert(1);
+    opacity: 0.9;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1.2);
+    position: relative;
+    z-index: 2;
+}
+
+.btn-close:hover {
+    opacity: 1;
+    transform: scale(1.3) rotate(90deg);
+    filter: invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.modal-body {
+    padding: 0;
+    position: relative;
+}
+
+.modal-body img {
+    border-radius: 0 0 25px 25px;
+    transition: all 0.3s ease;
+}
+
+.modal-body:hover img {
+    transform: scale(1.02);
+}
+
+/* Premium Gallery Section Enhancement */
+#gallery {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(247, 147, 30, 0.05) 0%, transparent 50%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ff6b35" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+    animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-10px) translateY(-5px); }
+    50% { transform: translateX(5px) translateY(-10px); }
+    75% { transform: translateX(-5px) translateY(5px); }
+}
+
+/* Enhanced Responsive Professional Gallery */
+@media (max-width: 768px) {
+    .gallery-grid {
+        gap: 15px;
+    }
+    
+    .gallery-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .gallery-item.large,
+    .gallery-item.medium,
+    .gallery-item.small {
+        flex: 1;
+        height: 280px;
+    }
+    
+    .gallery-overlay {
+        padding: 20px;
+    }
+    
+    .gallery-content h5,
+    .gallery-content h6 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .gallery-content p {
+        font-size: 0.9rem;
+    }
+    
+    .modal-title {
+        font-size: 1.4rem;
+    }
+    
+    .modal-header {
+        padding: 20px 25px;
+    }
+    
+    .gallery-grid {
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    #gallery-show-more-btn {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        gap: 12px;
+    }
+    
+    .gallery-row {
+        gap: 12px;
+    }
+    
+    .gallery-item.large,
+    .gallery-item.medium,
+    .gallery-item.small {
+        height: 220px;
+    }
+    
+    .gallery-overlay {
+        padding: 18px;
+    }
+    
+    .gallery-content h5,
+    .gallery-content h6 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+    
+    .gallery-content p {
+        font-size: 0.85rem;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .modal-header {
+        padding: 18px 20px;
+    }
+    
+    .gallery-grid {
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    #gallery-show-more-btn {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+}
+
+
+/* Responsive Grade Filter */
+@media (max-width: 768px) {
+    .grade-filter {
+        padding: 8px;
+        margin-bottom: 30px;
+    }
+    
+    .filter-buttons {
+        gap: 6px;
+    }
+    
+    .filter-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-width: 100px;
+    }
+    
+    .filter-btn i {
+        margin-right: 6px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .grade-filter {
+        padding: 6px;
+        margin-bottom: 25px;
+    }
+    
+    .filter-buttons {
+        gap: 4px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        min-width: auto;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    
+    .filter-btn:last-child {
+        margin-bottom: 0;
+    }
+    
+    .filter-btn i {
+        margin-right: 5px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Responsive Course Cards */
+@media (max-width: 768px) {
+    .course-card {
+        margin-bottom: 25px;
+    }
+    
+    .course-content {
+        padding: 30px 18px;
+    }
+    
+    .course-title {
+        font-size: 1.1rem;
+    }
+    
+    .course-description {
+        font-size: 0.85rem;
+    }
+    
+    .course-icon {
+        width: 65px;
+        height: 65px;
+        border-radius: 16px;
+    }
+    
+    .course-icon i {
+        font-size: 1.6rem;
+    }
+    
+    .course-grade {
+        top: 12px;
+        right: 12px;
+        padding: 4px 10px;
+        font-size: 0.7rem;
+        box-shadow: 0 1px 6px rgba(255, 107, 53, 0.15);
+    }
+}
+
+@media (max-width: 576px) {
+    .course-content {
+        padding: 25px 15px;
+    }
+    
+    .course-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+    }
+    
+    .course-icon i {
+        font-size: 1.4rem;
+    }
+    
+    .course-title {
+        font-size: 1rem;
+    }
+    
+    .course-description {
+        font-size: 0.8rem;
+    }
+    
+    .course-grade {
+        top: 10px;
+        right: 10px;
+        padding: 3px 8px;
+        font-size: 0.65rem;
+        box-shadow: 0 1px 4px rgba(255, 107, 53, 0.15);
+    }
+}
+
 /* Modern Glassmorphism Cards with 3D Effects */
 .card {
     border: none;
@@ -454,7 +1217,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card:hover {
-    transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
     box-shadow: 
         0 25px 50px rgba(0, 0, 0, 0.2),
         0 0 0 1px rgba(255, 255, 255, 0.3);
@@ -486,9 +1248,6 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
 }
 
-.card:hover .card-img-top {
-    transform: scale(1.1) rotate(2deg);
-}
 
 .card:hover .card-img-top::after {
     opacity: 1;
@@ -524,16 +1283,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2.5rem;
     color: var(--accent);
     margin-bottom: 15px;
-    transition: var(--transition);
 }
 
-.card:hover .facility-icon,
-.card:hover .activity-icon,
-.card:hover .value-icon,
-.card:hover .achievement-icon {
-    transform: scale(1.1);
-    color: var(--primary);
-}
 
 /* Carousel */
 .carousel-item {
@@ -813,20 +1564,6 @@ footer::before {
 }
 
 /* Modern Floating Elements */
-.floating-element {
-    position: relative;
-    animation: float 6s ease-in-out infinite;
-}
-
-.floating-element:nth-child(2n) {
-    animation-delay: -2s;
-    animation-duration: 8s;
-}
-
-.floating-element:nth-child(3n) {
-    animation-delay: -4s;
-    animation-duration: 10s;
-}
 
 /* Particle Effect Background */
 .particles {
