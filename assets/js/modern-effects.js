@@ -61,7 +61,7 @@ class ModernEffects {
                         const cards = entry.target.parentElement.querySelectorAll('.card');
                         cards.forEach((card, index) => {
                             setTimeout(() => {
-                                card.style.animation = `fadeInUp 0.6s ease forwards`;
+                                card.style.animation = `fadeInUp 0.8s ease forwards`;
                                 card.style.animationDelay = `${index * 0.1}s`;
                             }, index * 100);
                         });
@@ -74,6 +74,17 @@ class ModernEffects {
         document.querySelectorAll('.fade-in, .card').forEach(el => {
             observer.observe(el);
         });
+        
+        // Fallback: Make sure all AOS elements are visible after 3 seconds
+        setTimeout(() => {
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                if (!el.classList.contains('aos-animate')) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                    el.classList.add('aos-animate');
+                }
+            });
+        }, 3000);
     }
 
     // Initialize interactive elements
@@ -353,7 +364,7 @@ class ModernEffects {
         if (typeof AOS !== 'undefined') {
             setTimeout(() => {
                 AOS.refresh();
-            }, 500);
+            }, 200);
         }
     }
     
@@ -375,7 +386,7 @@ class ModernEffects {
         if (typeof AOS !== 'undefined') {
             setTimeout(() => {
                 AOS.refresh();
-            }, 300);
+            }, 150);
         }
     }
     
@@ -403,7 +414,7 @@ style.textContent = `
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(50px);
         }
         to {
             opacity: 1;
@@ -436,13 +447,40 @@ document.addEventListener('DOMContentLoaded', () => {
     new ModernEffects();
 });
 
-// Initialize AOS with modern settings
-if (typeof AOS !== 'undefined') {
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-        easing: 'ease-out-cubic',
-        delay: 100
-    });
-}
+// Initialize AOS with fixed visibility settings
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit for all content to load
+    setTimeout(() => {
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1200,
+                once: true,
+                offset: 150,
+                easing: 'ease-out-cubic',
+                delay: 100,
+                anchorPlacement: 'top-bottom',
+                disable: false,
+                startEvent: 'DOMContentLoaded',
+                initClassName: 'aos-init',
+                animatedClassName: 'aos-animate',
+                useClassNames: false,
+                disableMutationObserver: false,
+                debounceDelay: 50,
+                throttleDelay: 99
+            });
+            
+            // Force refresh after initialization
+            setTimeout(() => {
+                AOS.refresh();
+            }, 200);
+        } else {
+            // Fallback if AOS is not loaded
+            console.warn('AOS not loaded, using fallback animations');
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+                el.classList.add('aos-animate');
+            });
+        }
+    }, 100);
+});

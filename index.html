@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS CSS from npm -->
+    <link rel="stylesheet" href="node_modules/aos/dist/aos.css">
     <!-- Modern Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
@@ -672,14 +672,13 @@
             <p class="text-center mb-5">Explore our modern facilities and vibrant campus life through our professional gallery.</p>
             
             <!-- Professional Gallery Grid -->
-            <div class="gallery-grid">
+            <div class="gallery-grid" id="dynamic-gallery-container">
                 <!-- Row 1 -->
                 <div class="gallery-row">
-                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="0">
+                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="0" 
+                         onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Students in Classroom')">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                             alt="Students in Classroom" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Students in Classroom')">
+                             alt="Students in Classroom">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h5 class="text-white mb-2">Students in Classroom</h5>
@@ -687,11 +686,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="100" 
+                         onclick="openModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Library')">
                         <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                             alt="School Library" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Library')">
+                             alt="School Library">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">School Library</h6>
@@ -703,11 +701,11 @@
                 
                 <!-- Row 2 -->
                 <div class="gallery-row">
-                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="200" 
+                         onclick="openModal('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Science Laboratory')">
                         <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Science Laboratory" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Science Laboratory')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Science Laboratory</h6>
@@ -715,11 +713,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="300" 
+                         onclick="openModal('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Sports Activities')">
                         <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Sports Activities" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Sports Activities')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Sports Activities</h6>
@@ -727,11 +725,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="400" 
+                         onclick="openModal('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Computer Lab')">
                         <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Computer Lab" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Computer Lab')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Computer Lab</h6>
@@ -743,11 +741,11 @@
                 
                 <!-- Row 3 -->
                 <div class="gallery-row">
-                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="500">
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="500" 
+                         onclick="openModal('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Art Exhibition')">
                         <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Art Exhibition" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Art Exhibition')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Art Exhibition</h6>
@@ -755,11 +753,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="600">
+                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="600" 
+                         onclick="openModal('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Campus')">
                         <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="School Campus" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Campus')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h5 class="text-white mb-2">School Campus</h5>
@@ -771,11 +769,11 @@
                 
                 <!-- Additional Gallery Items (Hidden by default) -->
                 <div class="gallery-row gallery-row-hidden">
-                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="700">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="700" 
+                         onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Student Activities')">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Student Activities" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Student Activities')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Student Activities</h6>
@@ -783,11 +781,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="800">
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="800" 
+                         onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Music Room')">
                         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Music Room" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Music Room')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Music Room</h6>
@@ -795,11 +793,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="900">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="900" 
+                         onclick="openModal('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Cafeteria')">
                         <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Cafeteria" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Cafeteria')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Cafeteria</h6>
@@ -810,11 +808,11 @@
                 </div>
                 
                 <div class="gallery-row gallery-row-hidden">
-                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="gallery-item large" data-aos="fade-up" data-aos-delay="1000" 
+                         onclick="openModal('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Auditorium')">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Auditorium" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Auditorium')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h5 class="text-white mb-2">Auditorium</h5>
@@ -822,11 +820,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="1100" 
+                         onclick="openModal('https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Playground')">
                         <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Playground" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Playground')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Playground</h6>
@@ -837,11 +835,11 @@
                 </div>
                 
                 <div class="gallery-row gallery-row-hidden">
-                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="1200" 
+                         onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Study Hall')">
                         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Study Hall" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Study Hall')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Study Hall</h6>
@@ -849,11 +847,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="1300">
+                    <div class="gallery-item small" data-aos="fade-up" data-aos-delay="1300" 
+                         onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Gymnasium')">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Gymnasium" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Gymnasium')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Gymnasium</h6>
@@ -861,11 +859,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="1400">
+                    <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="1400" 
+                         onclick="openModal('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Outdoor Learning')">
                         <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="Outdoor Learning" 
-                             data-bs-toggle="modal" data-bs-target="#galleryModal" 
-                             onclick="openModal('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Outdoor Learning')">
+                             style="cursor: pointer;">
                         <div class="gallery-overlay">
                             <div class="gallery-content">
                                 <h6 class="text-white mb-1">Outdoor Learning</h6>
@@ -885,16 +883,63 @@
         </div>
     </section>
 
-    <!-- Gallery Modal -->
+    <!-- Professional Gallery Carousel Modal -->
     <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content border-0 carousel-modal">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title" id="galleryModalLabel">Gallery Image</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-title-container">
+                        <h5 class="modal-title" id="galleryModalLabel">School Gallery</h5>
+                        <div class="modal-counter">
+                            <span id="currentImageIndex">1</span> / <span id="totalImages">13</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
                 <div class="modal-body p-0">
-                    <img id="modalImage" src="" class="img-fluid w-100" alt="">
+                    <div class="carousel-container">
+                        <!-- Navigation Arrows -->
+                        <button class="carousel-nav prev-nav" onclick="navigateCarousel(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-nav next-nav" onclick="navigateCarousel(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <!-- Main Carousel -->
+                        <div class="carousel-wrapper">
+                            <div class="carousel-track" id="carouselTrack">
+                                <!-- Images will be dynamically loaded here -->
+                            </div>
+                        </div>
+                        
+                        <!-- Loading Spinner -->
+                        <div class="carousel-loading" id="carouselLoading">
+                            <div class="loading-spinner"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Thumbnail Navigation -->
+                    <div class="carousel-thumbnails">
+                        <div class="thumbnails-container" id="thumbnailsContainer">
+                            <!-- Thumbnails will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="carousel-actions">
+                        <button class="btn btn-outline-secondary" onclick="downloadCurrentImage()">
+                            <i class="fas fa-download me-2"></i>Download
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="shareCurrentImage()">
+                            <i class="fas fa-share me-2"></i>Share
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="toggleFullscreen()">
+                            <i class="fas fa-expand me-2"></i>Fullscreen
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -985,17 +1030,492 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS JS from npm -->
+    <script src="node_modules/aos/dist/aos.js"></script>
     <!-- Modern Effects JS -->
     <script src="assets/js/modern-effects.js"></script>
     <!-- Custom JS -->
     <script>
-        // Gallery Modal Function
-        function openModal(imageSrc, imageTitle) {
-            document.getElementById('modalImage').src = imageSrc;
-            document.getElementById('galleryModalLabel').textContent = imageTitle;
+        // Dynamic Gallery Data
+        const galleryData = [
+            {
+                id: 1,
+                src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Students in Classroom',
+                description: 'Modern learning environment',
+                size: 'large',
+                delay: 0
+            },
+            {
+                id: 2,
+                src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'School Library',
+                description: 'Knowledge hub',
+                size: 'medium',
+                delay: 100
+            },
+            {
+                id: 3,
+                src: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Science Laboratory',
+                description: 'Modern equipment',
+                size: 'small',
+                delay: 200
+            },
+            {
+                id: 4,
+                src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Sports Activities',
+                description: 'Healthy competition',
+                size: 'small',
+                delay: 300
+            },
+            {
+                id: 5,
+                src: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Computer Lab',
+                description: 'Digital learning',
+                size: 'medium',
+                delay: 400
+            },
+            {
+                id: 6,
+                src: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Art Exhibition',
+                description: 'Creative expression',
+                size: 'medium',
+                delay: 500
+            },
+            {
+                id: 7,
+                src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'School Campus',
+                description: 'Beautiful grounds',
+                size: 'large',
+                delay: 600
+            },
+            {
+                id: 8,
+                src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Student Activities',
+                description: 'Engaging programs',
+                size: 'small',
+                delay: 700
+            },
+            {
+                id: 9,
+                src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Music Room',
+                description: 'Creative learning',
+                size: 'medium',
+                delay: 800
+            },
+            {
+                id: 10,
+                src: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Cafeteria',
+                description: 'Healthy meals',
+                size: 'small',
+                delay: 900
+            },
+            {
+                id: 11,
+                src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Auditorium',
+                description: 'Events and performances',
+                size: 'large',
+                delay: 1000
+            },
+            {
+                id: 12,
+                src: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Playground',
+                description: 'Fun and games',
+                size: 'medium',
+                delay: 1100
+            },
+            {
+                id: 13,
+                src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Study Hall',
+                description: 'Quiet study space',
+                size: 'small',
+                delay: 1200
+            },
+            {
+                id: 14,
+                src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Gymnasium',
+                description: 'Physical fitness',
+                size: 'small',
+                delay: 1300
+            },
+            {
+                id: 15,
+                src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Outdoor Learning',
+                description: 'Nature education',
+                size: 'medium',
+                delay: 1400
+            }
+        ];
+
+        // Dynamic Gallery Functions
+        function generateGalleryItem(item) {
+            const isLarge = item.size === 'large';
+            const titleTag = isLarge ? 'h5' : 'h6';
+            const titleClass = isLarge ? 'text-white mb-2' : 'text-white mb-1';
+            
+            return `
+                <div class="gallery-item ${item.size}" data-aos="fade-up" data-aos-delay="${item.delay}" 
+                     onclick="openModal('${item.src}', '${item.title}')">
+                    <img src="${item.srcSmall}" 
+                         alt="${item.title}" 
+                         style="cursor: pointer;">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <${titleTag} class="${titleClass}">${item.title}</${titleTag}>
+                            <p class="text-white-50 mb-0">${item.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
+
+        function generateGalleryRow(items, startIndex = 0) {
+            let html = '<div class="gallery-row">';
+            for (let i = startIndex; i < Math.min(startIndex + 3, items.length); i++) {
+                html += generateGalleryItem(items[i]);
+            }
+            html += '</div>';
+            return html;
+        }
+
+        function renderDynamicGallery() {
+            const galleryContainer = document.getElementById('dynamic-gallery-container');
+            if (!galleryContainer) return;
+
+            let html = '';
+            
+            // First 6 items (2 rows of 3) - always visible
+            for (let i = 0; i < Math.min(6, galleryData.length); i += 3) {
+                html += generateGalleryRow(galleryData, i);
+            }
+            
+            // Remaining items (hidden by default) - grouped in rows of 3
+            if (galleryData.length > 6) {
+                for (let i = 6; i < galleryData.length; i += 3) {
+                    html += '<div class="gallery-row gallery-row-hidden">';
+                    for (let j = i; j < Math.min(i + 3, galleryData.length); j++) {
+                        html += generateGalleryItem(galleryData[j]);
+                    }
+                    html += '</div>';
+                }
+            }
+
+            galleryContainer.innerHTML = html;
+            
+            // Update show more button visibility
+            updateShowMoreButton();
+        }
+
+        function updateShowMoreButton() {
+            const showMoreContainer = document.getElementById('gallery-show-more-container');
+            const hiddenRows = document.querySelectorAll('.gallery-row-hidden');
+            
+            if (hiddenRows.length > 0) {
+                showMoreContainer.style.display = 'block';
+            } else {
+                showMoreContainer.style.display = 'none';
+            }
+        }
+
+        // Gallery Management Functions
+        function addGalleryItem(item) {
+            galleryData.push({
+                id: galleryData.length + 1,
+                ...item,
+                delay: galleryData.length * 100
+            });
+            renderDynamicGallery();
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }
+
+        function removeGalleryItem(id) {
+            const index = galleryData.findIndex(item => item.id === id);
+            if (index > -1) {
+                galleryData.splice(index, 1);
+                renderDynamicGallery();
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            }
+        }
+
+        function updateGalleryItem(id, updates) {
+            const index = galleryData.findIndex(item => item.id === id);
+            if (index > -1) {
+                galleryData[index] = { ...galleryData[index], ...updates };
+                renderDynamicGallery();
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            }
+        }
+
+        // Gallery Carousel Data (for modal) - Generated from galleryData
+        const galleryImages = galleryData.map(item => ({
+            src: item.src,
+            title: item.title,
+            description: item.description
+        }));
+
+        // Initialize dynamic gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDynamicGallery();
+        });
+
+        // Example usage functions for easy gallery management
+        function addNewGalleryItem() {
+            const newItem = {
+                src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'New Gallery Item',
+                description: 'Add your description here',
+                size: 'medium' // 'small', 'medium', or 'large'
+            };
+            addGalleryItem(newItem);
+        }
+
+        function removeLastGalleryItem() {
+            if (galleryData.length > 0) {
+                removeGalleryItem(galleryData[galleryData.length - 1].id);
+            }
+        }
+
+        function updateGalleryItemTitle(id, newTitle) {
+            updateGalleryItem(id, { title: newTitle });
+        }
+
+        let currentImageIndex = 0;
+
+        // Enhanced Gallery Modal Function
+        function openModal(imageSrc, imageTitle) {
+            console.log('Opening modal with:', imageSrc, imageTitle);
+            
+            // Find the index of the clicked image
+            currentImageIndex = galleryImages.findIndex(img => img.src === imageSrc);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+            
+            console.log('Current image index:', currentImageIndex);
+            
+            // Initialize carousel
+            initializeCarousel();
+            
+            // Update modal title
+            document.getElementById('galleryModalLabel').textContent = imageTitle;
+            
+            // Show modal
+            const modalElement = document.getElementById('galleryModal');
+            const modal = new bootstrap.Modal(modalElement);
+            modal.show();
+            
+            console.log('Modal should be showing now');
+        }
+
+        // Initialize Carousel
+        function initializeCarousel() {
+            console.log('Initializing carousel...');
+            
+            const carouselTrack = document.getElementById('carouselTrack');
+            const thumbnailsContainer = document.getElementById('thumbnailsContainer');
+            const totalImages = document.getElementById('totalImages');
+            const carouselLoading = document.getElementById('carouselLoading');
+            
+            console.log('Carousel elements found:', {
+                carouselTrack: !!carouselTrack,
+                thumbnailsContainer: !!thumbnailsContainer,
+                totalImages: !!totalImages
+            });
+            
+            // Show loading initially
+            if (carouselLoading) {
+                carouselLoading.style.display = 'block';
+            }
+            
+            // Clear existing content
+            carouselTrack.innerHTML = '';
+            thumbnailsContainer.innerHTML = '';
+            
+            // Set total images count
+            totalImages.textContent = galleryImages.length;
+            
+            let loadedImages = 0;
+            const totalImagesToLoad = galleryImages.length;
+            
+            // Create carousel slides
+            galleryImages.forEach((image, index) => {
+                // Main slide
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                
+                const mainImg = document.createElement('img');
+                mainImg.src = image.src;
+                mainImg.alt = image.title;
+                mainImg.loading = 'eager'; // Load immediately for better UX
+                
+                // Handle image load
+                mainImg.onload = () => {
+                    loadedImages++;
+                    if (loadedImages === totalImagesToLoad) {
+                        // Hide loading spinner when all images are loaded
+                        if (carouselLoading) {
+                            carouselLoading.style.display = 'none';
+                        }
+                    }
+                };
+                
+                mainImg.onerror = () => {
+                    loadedImages++;
+                    if (loadedImages === totalImagesToLoad) {
+                        if (carouselLoading) {
+                            carouselLoading.style.display = 'none';
+                        }
+                    }
+                };
+                
+                slide.appendChild(mainImg);
+                carouselTrack.appendChild(slide);
+                
+                // Thumbnail
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === currentImageIndex ? 'active' : ''}`;
+                thumbnail.onclick = () => goToSlide(index);
+                
+                const thumbImg = document.createElement('img');
+                thumbImg.src = image.src;
+                thumbImg.alt = image.title;
+                thumbImg.loading = 'lazy';
+                
+                thumbnail.appendChild(thumbImg);
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+            
+            // Update current position
+            updateCarouselPosition();
+        }
+
+        // Navigate Carousel
+        function navigateCarousel(direction) {
+            const totalImages = galleryImages.length;
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = totalImages - 1;
+            } else if (currentImageIndex >= totalImages) {
+                currentImageIndex = 0;
+            }
+            
+            updateCarouselPosition();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentImageIndex = index;
+            updateCarouselPosition();
+        }
+
+        // Update carousel position and UI
+        function updateCarouselPosition() {
+            const carouselTrack = document.getElementById('carouselTrack');
+            const currentImageIndexElement = document.getElementById('currentImageIndex');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Update track position
+            carouselTrack.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+            
+            // Update counter
+            currentImageIndexElement.textContent = currentImageIndex + 1;
+            
+            // Update thumbnails
+            thumbnails.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentImageIndex);
+            });
+            
+            // Update modal title
+            const currentImage = galleryImages[currentImageIndex];
+            document.getElementById('galleryModalLabel').textContent = currentImage.title;
+        }
+
+        // Download current image
+        function downloadCurrentImage() {
+            const currentImage = galleryImages[currentImageIndex];
+            const link = document.createElement('a');
+            link.href = currentImage.src;
+            link.download = `${currentImage.title.replace(/\s+/g, '_')}.jpg`;
+            link.click();
+        }
+
+        // Share current image
+        function shareCurrentImage() {
+            const currentImage = galleryImages[currentImageIndex];
+            if (navigator.share) {
+                navigator.share({
+                    title: currentImage.title,
+                    text: currentImage.description,
+                    url: currentImage.src
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(currentImage.src);
+                alert('Image URL copied to clipboard!');
+            }
+        }
+
+        // Toggle fullscreen
+        function toggleFullscreen() {
+            const modal = document.getElementById('galleryModal');
+            if (!document.fullscreenElement) {
+                modal.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('galleryModal');
+            if (modal.classList.contains('show')) {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        navigateCarousel(-1);
+                        break;
+                    case 'ArrowRight':
+                        navigateCarousel(1);
+                        break;
+                    case 'Escape':
+                        bootstrap.Modal.getInstance(modal).hide();
+                        break;
+                }
+            }
+        });
         
         // Gallery Show More Functionality
         let showingMore = false;
