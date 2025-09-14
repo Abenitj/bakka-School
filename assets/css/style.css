@@ -892,20 +892,47 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-4px) scale(1.05);
 }
 
-/* Special Effects for Different Sizes */
-.gallery-item.large:hover {
+/* Gallery Items - Original Styling */
+.gallery-item {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item:hover {
     transform: translateY(-5px);
+}
+
+.gallery-item.large:hover {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item.medium:hover {
-    transform: translateY(-3px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-item.small:hover {
-    transform: translateY(-2px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Meta Styling */
+.gallery-meta {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-meta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-meta .badge {
+    border-radius: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Enhanced Professional Gallery Carousel Modal */

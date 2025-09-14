@@ -676,7 +676,7 @@
                 <!-- Row 1 -->
                 <div class="gallery-row">
                     <div class="gallery-item large" data-aos="fade-up" data-aos-delay="0" 
-                         onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Students in Classroom')">
+                             onclick="openModal('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'Students in Classroom')">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                              alt="Students in Classroom">
                         <div class="gallery-overlay">
@@ -687,7 +687,7 @@
                         </div>
                     </div>
                     <div class="gallery-item medium" data-aos="fade-up" data-aos-delay="100" 
-                         onclick="openModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Library')">
+                             onclick="openModal('https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 'School Library')">
                         <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                              alt="School Library">
                         <div class="gallery-overlay">
@@ -1037,6 +1037,25 @@
     <!-- Custom JS -->
     <script>
         // Dynamic Gallery Data
+        // Color palette for gallery items
+        const colorPalette = [
+            { primary: '#ff6b35', secondary: '#f7931e', accent: '#ffd700', name: 'Sunset Orange' },
+            { primary: '#4ecdc4', secondary: '#44a08d', accent: '#93f9b9', name: 'Ocean Teal' },
+            { primary: '#667eea', secondary: '#764ba2', accent: '#f093fb', name: 'Royal Purple' },
+            { primary: '#f093fb', secondary: '#f5576c', accent: '#4facfe', name: 'Pink Gradient' },
+            { primary: '#4facfe', secondary: '#00f2fe', accent: '#43e97b', name: 'Sky Blue' },
+            { primary: '#43e97b', secondary: '#38f9d7', accent: '#ffecd2', name: 'Mint Green' },
+            { primary: '#fa709a', secondary: '#fee140', accent: '#a8edea', name: 'Coral Pink' },
+            { primary: '#a8edea', secondary: '#fed6e3', accent: '#d299c2', name: 'Soft Mint' },
+            { primary: '#ff9a9e', secondary: '#fecfef', accent: '#fecfef', name: 'Rose Gold' },
+            { primary: '#a18cd1', secondary: '#fbc2eb', accent: '#fad0c4', name: 'Lavender' },
+            { primary: '#ffecd2', secondary: '#fcb69f', accent: '#ff8a80', name: 'Peach' },
+            { primary: '#ff8a80', secondary: '#ff7043', accent: '#ff5722', name: 'Warm Red' },
+            { primary: '#81c784', secondary: '#aed581', accent: '#dce775', name: 'Nature Green' },
+            { primary: '#64b5f6', secondary: '#42a5f5', accent: '#2196f3', name: 'Cool Blue' },
+            { primary: '#f48fb1', secondary: '#f06292', accent: '#e91e63', name: 'Vibrant Pink' }
+        ];
+
         const galleryData = [
             {
                 id: 1,
@@ -1045,7 +1064,10 @@
                 title: 'Students in Classroom',
                 description: 'Modern learning environment',
                 size: 'large',
-                delay: 0
+                delay: 0,
+                color: colorPalette[0],
+                category: 'Education',
+                tags: ['students', 'classroom', 'learning']
             },
             {
                 id: 2,
@@ -1054,7 +1076,10 @@
                 title: 'School Library',
                 description: 'Knowledge hub',
                 size: 'medium',
-                delay: 100
+                delay: 100,
+                color: colorPalette[1],
+                category: 'Library',
+                tags: ['books', 'reading', 'knowledge']
             },
             {
                 id: 3,
@@ -1063,7 +1088,10 @@
                 title: 'Science Laboratory',
                 description: 'Modern equipment',
                 size: 'small',
-                delay: 200
+                delay: 200,
+                color: colorPalette[2],
+                category: 'Science',
+                tags: ['lab', 'experiments', 'research']
             },
             {
                 id: 4,
@@ -1072,7 +1100,10 @@
                 title: 'Sports Activities',
                 description: 'Healthy competition',
                 size: 'small',
-                delay: 300
+                delay: 300,
+                color: colorPalette[3],
+                category: 'Sports',
+                tags: ['fitness', 'teamwork', 'competition']
             },
             {
                 id: 5,
@@ -1081,7 +1112,10 @@
                 title: 'Computer Lab',
                 description: 'Digital learning',
                 size: 'medium',
-                delay: 400
+                delay: 400,
+                color: colorPalette[4],
+                category: 'Technology',
+                tags: ['computers', 'coding', 'digital']
             },
             {
                 id: 6,
@@ -1090,7 +1124,10 @@
                 title: 'Art Exhibition',
                 description: 'Creative expression',
                 size: 'medium',
-                delay: 500
+                delay: 500,
+                color: colorPalette[5],
+                category: 'Arts',
+                tags: ['art', 'creativity', 'exhibition']
             },
             {
                 id: 7,
@@ -1099,7 +1136,10 @@
                 title: 'School Campus',
                 description: 'Beautiful grounds',
                 size: 'large',
-                delay: 600
+                delay: 600,
+                color: colorPalette[6],
+                category: 'Campus',
+                tags: ['campus', 'grounds', 'architecture']
             },
             {
                 id: 8,
@@ -1108,7 +1148,10 @@
                 title: 'Student Activities',
                 description: 'Engaging programs',
                 size: 'small',
-                delay: 700
+                delay: 700,
+                color: colorPalette[7],
+                category: 'Activities',
+                tags: ['activities', 'programs', 'engagement']
             },
             {
                 id: 9,
@@ -1117,7 +1160,10 @@
                 title: 'Music Room',
                 description: 'Creative learning',
                 size: 'medium',
-                delay: 800
+                delay: 800,
+                color: colorPalette[8],
+                category: 'Music',
+                tags: ['music', 'instruments', 'creativity']
             },
             {
                 id: 10,
@@ -1126,7 +1172,10 @@
                 title: 'Cafeteria',
                 description: 'Healthy meals',
                 size: 'small',
-                delay: 900
+                delay: 900,
+                color: colorPalette[9],
+                category: 'Dining',
+                tags: ['food', 'meals', 'nutrition']
             },
             {
                 id: 11,
@@ -1135,7 +1184,10 @@
                 title: 'Auditorium',
                 description: 'Events and performances',
                 size: 'large',
-                delay: 1000
+                delay: 1000,
+                color: colorPalette[10],
+                category: 'Events',
+                tags: ['auditorium', 'performances', 'events']
             },
             {
                 id: 12,
@@ -1144,7 +1196,10 @@
                 title: 'Playground',
                 description: 'Fun and games',
                 size: 'medium',
-                delay: 1100
+                delay: 1100,
+                color: colorPalette[11],
+                category: 'Recreation',
+                tags: ['playground', 'games', 'fun']
             },
             {
                 id: 13,
@@ -1153,7 +1208,10 @@
                 title: 'Study Hall',
                 description: 'Quiet study space',
                 size: 'small',
-                delay: 1200
+                delay: 1200,
+                color: colorPalette[12],
+                category: 'Study',
+                tags: ['study', 'quiet', 'focus']
             },
             {
                 id: 14,
@@ -1162,7 +1220,10 @@
                 title: 'Gymnasium',
                 description: 'Physical fitness',
                 size: 'small',
-                delay: 1300
+                delay: 1300,
+                color: colorPalette[13],
+                category: 'Fitness',
+                tags: ['gym', 'fitness', 'exercise']
             },
             {
                 id: 15,
@@ -1171,7 +1232,10 @@
                 title: 'Outdoor Learning',
                 description: 'Nature education',
                 size: 'medium',
-                delay: 1400
+                delay: 1400,
+                color: colorPalette[14],
+                category: 'Nature',
+                tags: ['outdoor', 'nature', 'learning']
             }
         ];
 
@@ -1183,7 +1247,12 @@
             
             return `
                 <div class="gallery-item ${item.size}" data-aos="fade-up" data-aos-delay="${item.delay}" 
-                     onclick="openModal('${item.src}', '${item.title}')">
+                     onclick="openModal('${item.src}', '${item.title}')"
+                     data-color-primary="${item.color.primary}"
+                     data-color-secondary="${item.color.secondary}"
+                     data-color-accent="${item.color.accent}"
+                     data-category="${item.category}"
+                     data-tags="${item.tags.join(',')}">
                     <img src="${item.srcSmall}" 
                          alt="${item.title}" 
                          style="cursor: pointer;">
@@ -1191,6 +1260,11 @@
                         <div class="gallery-content">
                             <${titleTag} class="${titleClass}">${item.title}</${titleTag}>
                             <p class="text-white-50 mb-0">${item.description}</p>
+                            <div class="gallery-meta mt-2">
+                                <span class="badge badge-light badge-sm" style="background: ${item.color.accent}; color: ${item.color.primary}; font-size: 0.7rem; padding: 2px 8px;">
+                                    ${item.category}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1247,6 +1321,11 @@
 
         // Gallery Management Functions
         function addGalleryItem(item) {
+            // Auto-assign color if not provided
+            if (!item.color) {
+                item.color = colorPalette[galleryData.length % colorPalette.length];
+            }
+            
             galleryData.push({
                 id: galleryData.length + 1,
                 ...item,
@@ -1256,6 +1335,32 @@
             if (typeof AOS !== 'undefined') {
                 AOS.refresh();
             }
+        }
+
+        // Color Management Functions
+        function getRandomColor() {
+            return colorPalette[Math.floor(Math.random() * colorPalette.length)];
+        }
+
+        function getColorByName(name) {
+            return colorPalette.find(color => color.name.toLowerCase() === name.toLowerCase());
+        }
+
+        function filterByCategory(category) {
+            return galleryData.filter(item => item.category === category);
+        }
+
+        function filterByColor(colorName) {
+            const color = getColorByName(colorName);
+            return galleryData.filter(item => item.color.name === color.name);
+        }
+
+        function getCategories() {
+            return [...new Set(galleryData.map(item => item.category))];
+        }
+
+        function getColorPalette() {
+            return colorPalette;
         }
 
         function removeGalleryItem(id) {
@@ -1299,7 +1404,9 @@
                 srcSmall: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                 title: 'New Gallery Item',
                 description: 'Add your description here',
-                size: 'medium' // 'small', 'medium', or 'large'
+                size: 'medium', // 'small', 'medium', or 'large'
+                category: 'New',
+                tags: ['dynamic', 'new', 'example']
             };
             addGalleryItem(newItem);
         }
@@ -1312,6 +1419,34 @@
 
         function updateGalleryItemTitle(id, newTitle) {
             updateGalleryItem(id, { title: newTitle });
+        }
+
+        // Enhanced Example Functions
+        function addItemWithCustomColor() {
+            const newItem = {
+                src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                srcSmall: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                title: 'Custom Color Item',
+                description: 'Item with custom color scheme',
+                size: 'large',
+                color: getRandomColor(),
+                category: 'Custom',
+                tags: ['custom', 'color', 'random']
+            };
+            addGalleryItem(newItem);
+        }
+
+        function changeItemColor(id, colorName) {
+            const color = getColorByName(colorName);
+            if (color) {
+                updateGalleryItem(id, { color: color });
+            }
+        }
+
+        function showItemsByCategory(category) {
+            const items = filterByCategory(category);
+            console.log(`${category} items:`, items);
+            return items;
         }
 
         let currentImageIndex = 0;
