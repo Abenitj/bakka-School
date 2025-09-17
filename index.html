@@ -947,9 +947,10 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-5 contact-section">
-        <div class="container">
+        <div class="container-fluid px-4">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
+                <div class="col-lg-12">
+                    <div style="max-width: 1400px; margin: 0 auto;">
                     <div class="text-center mb-5" data-aos="fade-up">
                         <h2 class="section-title">Get In Touch</h2>
                         <p class="lead text-muted">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
@@ -961,26 +962,26 @@
                             <div class="contact-info-card h-100">
                                 <div class="contact-info-header">
                                     <h4 class="mb-4">Contact Information</h4>
-                                </div>
+                    </div>
                                 <div class="contact-info-body">
                                     <div class="contact-item">
                                         <div class="contact-icon">
                                             <i class="fas fa-map-marker-alt"></i>
-                                        </div>
+                    </div>
                                         <div class="contact-details">
                                             <h6>Address</h6>
-                                            <p>123 Education Street<br>Academic City, AC 12345</p>
-                                        </div>
-                                    </div>
+                                            <p>Bakka Secondary School<br>Bakka, Ethiopia</p>
+                </div>
+                            </div>
                                     
                                     <div class="contact-item">
                                         <div class="contact-icon">
                                             <i class="fas fa-phone"></i>
-                                        </div>
+                            </div>
                                         <div class="contact-details">
                                             <h6>Phone</h6>
-                                            <p>+1 (555) 123-4567</p>
-                                        </div>
+                                            <p><span class="phone-number">+251 XXX XXX XXX</span></p>
+                            </div>
                                     </div>
                                     
                                     <div class="contact-item">
@@ -989,7 +990,7 @@
                                         </div>
                                         <div class="contact-details">
                                             <h6>Email</h6>
-                                            <p>info@bakkaschool.edu</p>
+                                            <p>info@bakkaschool.edu.et</p>
                                         </div>
                                     </div>
                                     
@@ -1045,7 +1046,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                </form>
+                        </form>
                                 
                                 <!-- Success/Error Messages -->
                                 <div id="formMessages" class="mt-4"></div>
@@ -1059,60 +1060,113 @@
                             <div class="map-container">
                                 <h5 class="mb-3 text-center">Find Us</h5>
                                 <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.621465758367!2d-74.00594938459418!3d40.71278267933066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1c77d14acf%3A0x5d5d0d183c735076!2sEducation%20St%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1645123456789!5m2!1sen!2s" 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4988.355362580528!2d38.65566677596491!3d8.93370429112386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b81f42e1fb1db%3A0x49c0016a34e6637!2sBakka%20Secondary%20School!5e1!3m2!1sen!2sus!4v1758097954316!5m2!1sen!2sus" 
                                     width="100%" 
-                                    height="400" 
-                                    style="border:0; border-radius: 15px;" 
+                                    height="500" 
+                                    style="border:0; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);" 
                                     allowfullscreen="" 
-                                    loading="lazy">
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Enhanced Footer -->
+    <footer class="enhanced-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5>Bakka Secondary School</h5>
-                    <p>Excellence in Education Since 1985</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h5 class="footer-title">Bakka Secondary School</h5>
+                        <p class="footer-description">Excellence in Education Since 1985</p>
+                        <p class="footer-mission">Empowering students with quality education and fostering academic excellence for a brighter future.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <h5>Quick Links</h5>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">Quick Links</h6>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Facilities</a></li>
-                        <li><a href="#">Campus Life</a></li>
-                        <li><a href="#">Contact</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="facilities.html">Facilities</a></li>
+                            <li><a href="campus-life.html">Campus Life</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Newsletter</h5>
-                    <p>Subscribe to our newsletter for updates</p>
-                    <form>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
                         </div>
-                    </form>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">Contact Info</h6>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bakka, Ethiopia</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span class="phone-number">+251 XXX XXX XXX</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@bakkaschool.edu.et</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">School Hours</h6>
+                        <div class="school-hours">
+                            <div class="hours-item">
+                                <span class="day">Monday - Friday</span>
+                                <span class="time">8:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Saturday</span>
+                                <span class="time">9:00 AM - 12:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Sunday</span>
+                                <span class="time">Closed</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr class="mt-4 mb-4">
-            <div class="text-center">
-                <p>&copy; 2023 Bakka Secondary School. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">&copy; 2024 Bakka Secondary School. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -2002,7 +2056,7 @@
             `;
             
             // Auto-hide after 8 seconds
-            setTimeout(() => {
+                setTimeout(() => {
                 clearMessages();
             }, 8000);
         }

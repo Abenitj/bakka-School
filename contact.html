@@ -16,60 +16,433 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .contact-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
-            padding: 150px 0 100px;
+            padding: 8rem 0 6rem;
             color: white;
+            position: relative;
+            overflow: hidden;
         }
         
-        .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            transition: var(--transition);
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(247, 147, 30, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
         
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
         }
         
-        .contact-info-item {
+        .contact-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 30%, #e9ecef 70%, #ffffff 100%);
+            position: relative;
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(247, 147, 30, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-info-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.08),
+                0 4px 20px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            height: 100%;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.12),
+                0 8px 30px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #ffd700);
+        }
+        
+        .contact-form-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.08),
+                0 4px 20px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-form-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.12),
+                0 8px 30px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #ffd700);
+        }
+        
+        .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius-sm);
-            transition: var(--transition);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+            transition: all 0.3s ease;
         }
         
-        .contact-info-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
+        .contact-item:hover {
+            background: rgba(255, 107, 53, 0.08);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.15);
         }
         
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            font-size: 1.5rem;
-            color: var(--text-color);
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 
+                0 8px 25px rgba(255, 107, 53, 0.3),
+                0 4px 12px rgba(255, 107, 53, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .contact-icon:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .contact-icon:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 
+                0 12px 35px rgba(255, 107, 53, 0.4),
+                0 6px 20px rgba(255, 107, 53, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .contact-icon i {
+            color: white;
+            font-size: 1.8rem;
+            z-index: 1;
+        }
+        
+        .contact-details h5 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .contact-details .phone-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-details .phone-number:hover {
+            color: #ff6b35;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            position: relative;
+        }
+        
+        .form-control:focus {
+            border-color: #ff6b35;
+            box-shadow: 
+                0 0 0 0.3rem rgba(255, 107, 53, 0.15),
+                0 6px 20px rgba(255, 107, 53, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            background: #ffffff;
+            outline: none;
+            transform: translateY(-2px);
+        }
+        
+        .form-control::placeholder {
+            color: #adb5bd;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus::placeholder {
+            color: #6c757d;
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 3rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 8px 25px rgba(255, 107, 53, 0.3),
+                0 4px 12px rgba(255, 107, 53, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 
+                0 12px 35px rgba(255, 107, 53, 0.4),
+                0 6px 20px rgba(255, 107, 53, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #f7931e, #ff6b35);
         }
         
         .map-container {
-            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.08),
+                0 4px 20px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow);
+        }
+        
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #ffd700);
+        }
+        
+        .map-container:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.12),
+                0 8px 30px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+        
+        .map-container h5 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .map-container iframe {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            font-size: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border-radius: 2px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #e9ecef;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 0 1rem;
+            }
+            
+            .contact-hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .contact-section {
+                padding: 4rem 0;
+            }
+            
+            .contact-info-card,
+            .contact-form-card {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .contact-icon i {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-details .phone-number {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -111,42 +484,92 @@
 
     <!-- Contact Hero Section -->
     <section class="contact-hero text-center">
+        <div class="contact-hero-content">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3" data-aos="fade-up">Get In Touch</h1>
-            <p class="lead" data-aos="fade-up" data-aos-delay="100">We'd love to hear from you. Contact us today!</p>
+                <h1 class="hero-title" data-aos="fade-up">Get In Touch</h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">We'd love to hear from you. Contact us today and let's start a conversation!</p>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Information Section -->
-    <section class="py-5">
-        <div class="container">
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
             <div class="row">
-                <div class="col-lg-8 mb-5" data-aos="fade-right">
-                    <div class="contact-card">
+                <div class="col-lg-6 mb-5" data-aos="fade-right">
+                    <div class="contact-info-card">
+                        <h2 class="section-title text-start mb-4">Contact Information</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Our Location</h5>
+                                <p>Bakka, Ethiopia<br>Near the main market area</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Phone Numbers</h5>
+                                <p><span class="phone-number">+251 XXX XXX XXX</span><br><span class="phone-number">+251 XXX XXX XXX</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Email Address</h5>
+                                <p>info@bakkaschool.edu.et<br>admissions@bakkaschool.edu.et</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Office Hours</h5>
+                                <p>Monday - Friday: 8:00 AM - 4:00 PM<br>Saturday: 9:00 AM - 12:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-form-card">
                         <h2 class="section-title text-start mb-4">Send us a Message</h2>
                         <form id="contactForm">
                             <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" required>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fullName" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="fullName" required placeholder="Enter your full name">
+                                    </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" required>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" required placeholder="Enter your email">
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email" required>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone">
                                 </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="subject" class="form-label">Subject</label>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="subject" class="form-label">Subject *</label>
                                 <select class="form-control" id="subject" required>
                                     <option value="">Select a subject</option>
                                     <option value="admission">Admission Inquiry</option>
@@ -156,56 +579,18 @@
                                     <option value="other">Other</option>
                                 </select>
                             </div>
-                            <div class="mb-4">
-                                <label for="message" class="form-label">Message</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
                                 <textarea class="form-control" id="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-paper-plane me-2"></i>Send Message
                             </button>
+                            </div>
                         </form>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4" data-aos="fade-left">
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h5>Address</h5>
-                            <p class="mb-0">123 Education Street<br>Academic City, AC 12345</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h5>Phone</h5>
-                            <p class="mb-0">+1 (555) 123-4567<br>+1 (555) 123-4568</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h5>Email</h5>
-                            <p class="mb-0">info@bakkaschool.edu<br>admissions@bakkaschool.edu</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h5>Office Hours</h5>
-                            <p class="mb-0">Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 2:00 PM</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -213,10 +598,11 @@
     </section>
 
     <!-- Map Section -->
-    <section class="py-5 bg-white">
-        <div class="container">
+    <section class="py-5 bg-light">
+        <div class="contact-container">
             <h2 class="section-title text-center" data-aos="fade-up">Find Us</h2>
             <div class="map-container" data-aos="zoom-in">
+                <h5>Our Location</h5>
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.621465758367!2d-74.00594938459418!3d40.71278267933066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1c77d14acf%3A0x5d5d0d183c735076!2sEducation%20St%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1645123456789!5m2!1sen!2s" 
                     width="100%" 
@@ -229,86 +615,34 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center" data-aos="fade-up">Frequently Asked Questions</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="accordion" id="faqAccordion" data-aos="fade-up">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                    What are the admission requirements?
-                                </button>
-                            </h2>
-                            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Our admission requirements include a completed application form, previous academic records, recommendation letters, and an entrance examination. We also conduct interviews for prospective students.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                    Do you offer financial aid or scholarships?
-                                </button>
-                            </h2>
-                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Yes, we offer various scholarship programs and financial aid options for qualified students. Please contact our admissions office for more information about available programs and eligibility requirements.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                    What extracurricular activities are available?
-                                </button>
-                            </h2>
-                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    We offer a wide range of extracurricular activities including sports, music, drama, debate, robotics, art, and community service clubs. Students are encouraged to participate in activities that interest them.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                    How can I schedule a campus tour?
-                                </button>
-                            </h2>
-                            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    You can schedule a campus tour by calling our admissions office at (555) 123-4567 or by filling out the contact form above. Tours are available Monday through Friday and on select Saturdays.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
+    <!-- Enhanced Footer -->
+    <footer class="enhanced-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5>Bakka Secondary School</h5>
-                    <p>Excellence in Education Since 1985</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h5 class="footer-title">Bakka Secondary School</h5>
+                        <p class="footer-description">Excellence in Education Since 1985</p>
+                        <p class="footer-mission">Empowering students with quality education and fostering academic excellence for a brighter future.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <h5>Quick Links</h5>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">Quick Links</h6>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
@@ -318,20 +652,59 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Newsletter</h5>
-                    <p>Subscribe to our newsletter for updates</p>
-                    <form>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">Contact Info</h6>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bakka, Ethiopia</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span class="phone-number">+251 XXX XXX XXX</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@bakkaschool.edu.et</span>
+                            </div>
                         </div>
-                    </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">School Hours</h6>
+                        <div class="school-hours">
+                            <div class="hours-item">
+                                <span class="day">Monday - Friday</span>
+                                <span class="time">8:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Saturday</span>
+                                <span class="time">9:00 AM - 12:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Sunday</span>
+                                <span class="time">Closed</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr class="mt-4 mb-4">
-            <div class="text-center">
-                <p>&copy; 2023 Bakka Secondary School. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">&copy; 2024 Bakka Secondary School. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -342,5 +715,48 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Modern Effects JS -->
     <script src="assets/js/modern-effects.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            easing: 'ease-in-out',
+            delay: 100,
+            anchorPlacement: 'top-bottom'
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                fullName: document.getElementById('fullName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value.trim()
+            };
+            
+            // Basic validation
+            if (!formData.fullName || !formData.email || !formData.subject || !formData.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
