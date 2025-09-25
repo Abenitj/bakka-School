@@ -1,14 +1,8 @@
 [build]
   # No build command needed for static HTML
   command = "echo 'Static site - no build required'"
-  # Publish the root directory
+  # Publish the root directory (not public)
   publish = "."
   
 [build.environment]
   # No environment variables needed for static site
-  
-# Redirect rules (optional)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
