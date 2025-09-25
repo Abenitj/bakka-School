@@ -30,19 +30,32 @@
         }
         
         .navbar {
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .navbar-brand {
             font-weight: 700;
+            color: white;
+        }
+        
+        .navbar.scrolled .navbar-brand {
             color: var(--text-color);
         }
         
         .nav-link {
-            color: var(--text-color);
+            color: white;
             font-weight: 500;
             margin: 0 10px;
+        }
+        
+        .navbar.scrolled .nav-link {
+            color: var(--text-color);
         }
         
         .nav-link:hover {
@@ -178,15 +191,392 @@
         .footer-links a:hover {
             color: var(--primary);
         }
+
+        /* Page Header Styles */
+        .page-header {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 10rem 0 6rem;
+            margin: 0;
+            color: white;
+            position: relative;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(247, 147, 30, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+        
+        .page-header p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                min-height: 45vh;
+                padding: 8rem 0 4rem;
+            }
+            
+            .page-header h1 {
+                line-height: 1.2;
+            }
+        }
+
+        /* History Section Styles */
+        .history-image {
+            position: relative;
+        }
+
+        .history-image img {
+            transition: transform 0.3s ease;
+        }
+
+        .history-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Left-aligned section title fix */
+        .section-title.left-aligned:after {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background: white;
+            color: #2c3e50;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(247, 147, 30, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+
+        .cta-buttons .btn {
+            min-width: 180px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-buttons .btn-primary {
+            background: #ff6b35;
+            color: white;
+            border: 2px solid #ff6b35;
+        }
+
+        .cta-buttons .btn-primary:hover {
+            background: #f7931e;
+            color: white;
+            border: 2px solid #f7931e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-buttons .btn-outline-primary {
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            background: transparent;
+        }
+
+        .cta-buttons .btn-outline-primary:hover {
+            background: #ff6b35;
+            color: white;
+            border: 2px solid #ff6b35;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-info {
+            border-top: 1px solid #e9ecef;
+            padding-top: 2rem;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            opacity: 0.9;
+        }
+
+        .info-item p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons .btn {
+                min-width: 160px;
+                margin-bottom: 1rem;
+            }
+
+            .cta-buttons .btn.me-3 {
+                margin-right: 0 !important;
+            }
+        }
+
+
+
+
+        /* Professional Guiding Principles Section */
+        .principles-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principles-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(155, 89, 182, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .principle-card {
+            background: transparent;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 100%;
+            text-align: center;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .principle-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(52, 152, 219, 0.4);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .principle-card:hover .principle-icon {
+            transform: translateY(-3px);
+            background: rgba(52, 152, 219, 0.3);
+            border-color: rgba(52, 152, 219, 0.6);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .principle-icon i {
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .principle-title {
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .principle-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            border-radius: 2px;
+        }
+
+        .principle-text {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .values-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .values-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .values-list li i {
+            color: #3498db;
+            font-size: 1rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            width: 20px;
+            text-align: center;
+        }
+
+        .values-list li:last-child {
+            margin-bottom: 0;
+        }
+
+
+        @media (max-width: 768px) {
+            .principle-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .principle-icon {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 1.2rem;
+            }
+
+            .principle-icon i {
+                font-size: 1.8rem;
+            }
+
+            .principle-title {
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .principle-text {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="https://via.placeholder.com/40x40/FFD93D/4F200D?text=B" alt="Bakka Logo" class="d-inline-block align-text-top me-2 rounded-circle">
-                Bakka Secondary School
+                <img src="./assets/images/image.png" alt="Bakka Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -200,15 +590,6 @@
                         <a class="nav-link active" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="courses.html">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="facilities.html">Facilities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="campus-life.html">Campus Life</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
@@ -217,118 +598,91 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="py-5 bg-primary bg-opacity-10">
+    <section class="page-header">
         <div class="container text-center">
             <h1 class="display-4 fw-bold" data-aos="fade-up">About Our School</h1>
-            <p class="lead" data-aos="fade-up" data-aos-delay="100">Excellence in Education Since 1985</p>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">Discover our rich history, mission, and commitment to educational excellence since 2014 EC</p>
         </div>
     </section>
 
     <!-- School History Section -->
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title text-center" data-aos="fade-up">Our History</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <p class="lead">Bakka Secondary School was established in 1985 with a vision to provide quality education to the community.</p>
-                    <p>Founded by a group of passionate educators, our school started with just 50 students and 5 teachers in a small building. Over the years, we have grown significantly while maintaining our commitment to academic excellence and character development.</p>
-                    <p>In 2005, we moved to our current campus, which features state-of-the-art facilities to support our students' learning journey. Today, we serve over 1,200 students with a dedicated team of 80 teachers and staff members.</p>
-                    <p>Throughout our history, we have remained committed to our founding principles while adapting to the changing educational landscape to prepare our students for the future.</p>
+                    <h2 class="section-title left-aligned mb-4" style="text-align: left; font-size: 2.5rem;">Our History</h2>
+                    <p class="lead mb-4">Bakka Secondary School was founded in 2014 EC with a vision to provide quality education to the community of Bakka, Ethiopia.</p>
+                    
+                    <p class="mb-3">Founded by a group of passionate educators, our school began with just 50 students and 9 dedicated teachers in a modest building. Through unwavering commitment to academic excellence and character development, we have grown into a respected educational institution.</p>
+                    
+                    <p class="mb-3">Today, we proudly serve over 350+ students with a team of 16+ experienced teachers and staff members, continuing our mission to provide comprehensive education that prepares students for success.</p>
+                    
+                    <p class="mb-0">Throughout our journey, we have remained true to our founding principles while continuously adapting to meet the evolving needs of education, preparing our students for success in the 21st century.</p>
                 </div>
+                
                 <div class="col-lg-6" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1564053489984-317bbd824340?ixlib=rb-4.0.3" alt="School History" class="img-fluid rounded shadow">
-                    <div class="mt-4">
-                        <div class="timeline">
-                            <div class="timeline-item" data-aos="fade-up">
-                                <h5>1985</h5>
-                                <p>School founded with 50 students</p>
-                            </div>
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                                <h5>1995</h5>
-                                <p>First graduating class of 35 students</p>
-                            </div>
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                                <h5>2005</h5>
-                                <p>Moved to current campus with modern facilities</p>
-                            </div>
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                                <h5>2015</h5>
-                                <p>Celebrated 30 years of educational excellence</p>
-                            </div>
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                                <h5>2023</h5>
-                                <p>1,200+ students with 80 faculty members</p>
-                            </div>
-                        </div>
+                    <div class="history-image">
+                        <img src="https://images.unsplash.com/photo-1564053489984-317bbd824340?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="School History" class="img-fluid rounded shadow-lg">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Principal's Message Section -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title text-center" data-aos="fade-up">Principal's Message</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="card p-4" data-aos="zoom-in">
-                        <div class="row align-items-center">
-                            <div class="col-md-4 text-center">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3" alt="Principal" class="principal-img mb-3">
-                                <h4>Dr. Sarah Johnson</h4>
-                                <p class="text-muted">School Principal</p>
-                                <p class="text-muted">M.Ed., Ph.D. in Education</p>
-                            </div>
-                            <div class="col-md-8">
-                                <blockquote class="blockquote">
-                                    <p class="mb-4"><i class="fas fa-quote-left text-accent me-2"></i>At Bakka Secondary School, we believe that every student has unique talents and potential waiting to be discovered. Our dedicated team of educators is committed to providing a nurturing environment where students can thrive academically, socially, and emotionally.</p>
-                                    <p class="mb-4">We emphasize not only academic excellence but also character development, leadership skills, and community engagement. Our holistic approach to education prepares students to face future challenges with confidence and compassion.</p>
-                                    <p>I invite you to visit our campus and experience the Bakka difference firsthand. Together, we can shape the future leaders of tomorrow.<i class="fas fa-quote-right text-accent ms-2"></i></p>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Mission, Vision & Values Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center" data-aos="fade-up">Our Guiding Principles</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card text-center h-100">
-                        <div class="card-body">
-                            <i class="fas fa-bullseye value-icon"></i>
-                            <h3 class="card-title">Our Mission</h3>
-                            <p class="card-text">To provide a comprehensive and innovative education that empowers students to achieve their full potential, become lifelong learners, and contribute positively to society.</p>
+    <section class="py-5 principles-section">
+        <div class="container-fluid px-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div style="max-width: 1400px; margin: 0 auto;">
+                        <div class="text-center mb-5" data-aos="fade-up">
+                            <h2 class="section-title" style="font-size: 2.5rem; color: white;">Our Guiding Principles</h2>
+                            <p class="lead" style="color: rgba(255, 255, 255, 0.8);">The foundation of our educational philosophy and commitment to excellence</p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card text-center h-100">
-                        <div class="card-body">
-                            <i class="fas fa-eye value-icon"></i>
-                            <h3 class="card-title">Our Vision</h3>
-                            <p class="card-text">To be a leading educational institution that fosters academic excellence, character development, and global citizenship, preparing students to thrive in a rapidly changing world.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card text-center h-100">
-                        <div class="card-body">
-                            <i class="fas fa-heart value-icon"></i>
-                            <h3 class="card-title">Core Values</h3>
-                            <ul class="list-unstyled text-start">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Excellence in all endeavors</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Integrity and ethical behavior</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Respect for diversity</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Responsibility to community</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Innovation and creativity</li>
-                            </ul>
+                        
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="0">
+                                <div class="principle-card mission-card">
+                                    <div class="principle-icon">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <div class="principle-content">
+                                        <h3 class="principle-title">Our Mission</h3>
+                                        <p class="principle-text">To provide a comprehensive and innovative education that empowers students to achieve their full potential, become lifelong learners, and contribute positively to society.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="principle-card vision-card">
+                                    <div class="principle-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <div class="principle-content">
+                                        <h3 class="principle-title">Our Vision</h3>
+                                        <p class="principle-text">To be a leading educational institution that fosters academic excellence, character development, and global citizenship, preparing students to thrive in a rapidly changing world.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="principle-card values-card">
+                                    <div class="principle-icon">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="principle-content">
+                                        <h3 class="principle-title">Core Values</h3>
+                                        <ul class="values-list">
+                                            <li><i class="fas fa-check"></i> Excellence in all endeavors</li>
+                                            <li><i class="fas fa-check"></i> Integrity and ethical behavior</li>
+                                            <li><i class="fas fa-check"></i> Respect for diversity</li>
+                                            <li><i class="fas fa-check"></i> Responsibility to community</li>
+                                            <li><i class="fas fa-check"></i> Innovation and creativity</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -336,77 +690,45 @@
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section class="py-5 bg-white">
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5">
         <div class="container">
-            <h2 class="section-title text-center" data-aos="fade-up">Our Achievements</h2>
-            <p class="text-center mb-5" data-aos="fade-up">Celebrating excellence in academics, sports, and cultural activities</p>
-            
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <i class="fas fa-graduation-cap achievement-icon"></i>
-                            <h3>Academic Excellence</h3>
-                            <ul class="list-unstyled text-start">
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> 95% university acceptance rate</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> 5 National Science Fair winners</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> 3 Presidential Academic Awards</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> Top 10% in national exams for 5 years</li>
-                            </ul>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="cta-content" data-aos="fade-up">
+                        <h2 class="cta-title mb-4">Ready to Join Our Community?</h2>
+                        <p class="cta-subtitle mb-4">
+                            Discover how Bakka Secondary School can help your child achieve academic excellence and personal growth. Get in touch with us today to learn more about our programs, admissions process, and how we can support your educational journey.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn btn-primary btn-lg me-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                                <i class="fas fa-envelope me-2"></i>Contact Us
+                            </a>
+                            <a href="tel:+251940168491" class="btn btn-outline-primary btn-lg mb-3" data-aos="fade-up" data-aos-delay="300">
+                                <i class="fas fa-phone me-2"></i>Call Now
+                            </a>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <i class="fas fa-medal achievement-icon"></i>
-                            <h3>Sports Achievements</h3>
-                            <ul class="list-unstyled text-start">
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> State champions in basketball (2022)</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> Regional track & field champions</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> 15 students selected for national teams</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> Annual sportsmanship award winners</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <i class="fas fa-music achievement-icon"></i>
-                            <h3>Arts & Culture</h3>
-                            <ul class="list-unstyled text-start">
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> National choir competition winners</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> Regional art exhibition awards</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> Drama club performances featured in festivals</li>
-                                <li class="mb-2"><i class="fas fa-trophy text-warning me-2"></i> Cultural exchange program with 5 countries</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5" data-aos="fade-up">
-                <div class="card bg-primary bg-opacity-10 border-0">
-                    <div class="card-body py-5">
-                        <h3 class="card-title">Our Students' Success</h3>
-                        <div class="row mt-4">
-                            <div class="col-md-3 col-6 mb-3">
-                                <h2 class="text-primary">98%</h2>
-                                <p>Graduation Rate</p>
-                            </div>
-                            <div class="col-md-3 col-6 mb-3">
-                                <h2 class="text-primary">85%</h2>
-                                <p>Extracurricular Participation</p>
-                            </div>
-                            <div class="col-md-3 col-6 mb-3">
-                                <h2 class="text-primary">92%</h2>
-                                <p>Parent Satisfaction</p>
-                            </div>
-                            <div class="col-md-3 col-6 mb-3">
-                                <h2 class="text-primary">100+</h2>
-                                <p>Annual Scholarships</p>
+                        <div class="cta-info mt-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="info-item">
+                                        <i class="fas fa-map-marker-alt mb-2"></i>
+                                        <p class="mb-0"><strong>Visit Us</strong><br>Bakka, Ethiopia</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="info-item">
+                                        <i class="fas fa-phone mb-2"></i>
+                                        <p class="mb-0"><strong>Call Us</strong><br>+251 940 168 491<br>+251 985 217 255<br>+251 960 653 349</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="info-item">
+                                        <i class="fas fa-envelope mb-2"></i>
+                                        <p class="mb-0"><strong>Email Us</strong><br>info@bakkaschool.edu.et</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -414,55 +736,116 @@
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
-    <footer>
+    <footer class="enhanced-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5>Bakka Secondary School</h5>
-                    <p>Excellence in Education Since 1985</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h5 class="footer-title">Bakka Secondary School</h5>
+                        <p class="footer-description">Excellence in Education Since 2014 EC</p>
+                        <p class="footer-mission">Empowering students with quality education and fostering academic excellence for a brighter future.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <h5>Quick Links</h5>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">Quick Links</h6>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="courses.html">Courses</a></li>
-                        <li><a href="facilities.html">Facilities</a></li>
-                        <li><a href="campus-life.html">Campus Life</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Newsletter</h5>
-                    <p>Subscribe to our newsletter for updates</p>
-                    <form>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
                         </div>
-                    </form>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">Contact Info</h6>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bakka, Ethiopia</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="phone-numbers">
+                                    <div class="phone-number">+251 940 168 491</div>
+                                    <div class="phone-number">+251 985 217 255</div>
+                                    <div class="phone-number">+251 960 653 349</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@bakkaschool.edu.et</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h6 class="footer-heading">School Hours</h6>
+                        <div class="school-hours">
+                            <div class="hours-item">
+                                <span class="day">Monday - Friday</span>
+                                <span class="time">2:00 PM - 9:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Saturday</span>
+                                <span class="time">2:00 PM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Sunday</span>
+                                <span class="time">Closed</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr class="mt-4 mb-4">
-            <div class="text-center">
-                <p>&copy; 2023 Bakka Secondary School. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="copyright">&copy; 2025 Bakka Secondary School. All Rights Reserved.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS JS from npm -->
+    <script src="node_modules/aos/dist/aos.js"></script>
     <!-- Modern Effects JS -->
     <script src="assets/js/modern-effects.js"></script>
+    <script>
+        // Navbar transparency effect - transparent until header section ends
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const headerSection = document.querySelector('.page-header');
+            const headerHeight = headerSection.offsetHeight;
+            
+            if (window.scrollY > headerHeight - 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+    </script>
 </body>
 </html>

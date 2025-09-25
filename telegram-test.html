@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Chat ID Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            border-left: 4px solid #2196f3;
+        }
+        .code {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .error {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Telegram Bot Setup Test</h1>
+        
+        <div class="step">
+            <h3>Step 1: Get Your Chat ID</h3>
+            <p>To get your Chat ID, you need to start a conversation with your bot first:</p>
+            <ol>
+                <li>Open Telegram</li>
+                <li>Search for your bot using the username (not the token)</li>
+                <li>Start a conversation with the bot</li>
+                <li>Send any message to the bot</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Test Your Bot Token</h3>
+            <p>Let's test if your bot token is working:</p>
+            <button onclick="testBotToken()">Test Bot Token</button>
+            <div id="tokenResult"></div>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Get Chat ID Automatically</h3>
+            <p>Enter your Chat ID below to test the connection:</p>
+            <input type="text" id="chatIdInput" placeholder="Enter your Chat ID (e.g., 123456789)" style="width: 300px; padding: 10px; margin: 10px 0;">
+            <br>
+            <button onclick="testChatId()">Test Chat ID</button>
+            <div id="chatResult"></div>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Send Test Message</h3>
+            <p>Send a test message to your Telegram:</p>
+            <button onclick="sendTestMessage()">Send Test Message</button>
+            <div id="messageResult"></div>
+        </div>
+
+        <div class="step">
+            <h3>Step 5: Update Your Files</h3>
+            <p>Once you have your Chat ID, update these files:</p>
+            <div class="code">
+                <strong>contact.html</strong> (line 903):<br>
+                const TELEGRAM_CHAT_ID = 'YOUR_ACTUAL_CHAT_ID';
+            </div>
+            <div class="code">
+                <strong>index.html</strong> (line 2068):<br>
+                const TELEGRAM_CHAT_ID = 'YOUR_ACTUAL_CHAT_ID';
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const TELEGRAM_BOT_TOKEN = '8380849170:AAGJIxZ3a4iY9tYv9hMzkHMXDSNk-4yLEdE';
+        
+        async function testBotToken() {
+            const resultDiv = document.getElementById('tokenResult');
+            resultDiv.innerHTML = '<p>Testing bot token...</p>';
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe`);
+                const data = await response.json();
+                
+                if (data.ok) {
+                    resultDiv.innerHTML = `
+                        <div class="result">
+                            <strong>✅ Bot Token is Valid!</strong><br>
+                            Bot Name: ${data.result.first_name}<br>
+                            Bot Username: @${data.result.username}<br>
+                            Bot ID: ${data.result.id}
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Bot Token Error:</strong><br>
+                            ${data.description}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Network Error:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        async function testChatId() {
+            const chatId = document.getElementById('chatIdInput').value.trim();
+            const resultDiv = document.getElementById('chatResult');
+            
+            if (!chatId) {
+                resultDiv.innerHTML = '<div class="error">Please enter a Chat ID</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<p>Testing Chat ID...</p>';
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getChat?chat_id=${chatId}`);
+                const data = await response.json();
+                
+                if (data.ok) {
+                    resultDiv.innerHTML = `
+                        <div class="result">
+                            <strong>✅ Chat ID is Valid!</strong><br>
+                            Chat Type: ${data.result.type}<br>
+                            Chat Title: ${data.result.title || data.result.first_name || 'Private Chat'}<br>
+                            <strong>Your Chat ID: ${chatId}</strong>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Chat ID Error:</strong><br>
+                            ${data.description}<br>
+                            <strong>Make sure you've started a conversation with your bot first!</strong>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Network Error:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        async function sendTestMessage() {
+            const chatId = document.getElementById('chatIdInput').value.trim();
+            const resultDiv = document.getElementById('messageResult');
+            
+            if (!chatId) {
+                resultDiv.innerHTML = '<div class="error">Please enter a Chat ID first</div>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<p>Sending test message...</p>';
+            
+            const testMessage = `
+🧪 *Test Message from Bakka School*
+
+✅ *Bot Integration Test*
+📅 *Time:* ${new Date().toLocaleString()}
+🏫 *From:* Bakka Secondary School
+
+This is a test message to verify your Telegram integration is working correctly!
+            `.trim();
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: testMessage,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.ok) {
+                    resultDiv.innerHTML = `
+                        <div class="result">
+                            <strong>✅ Test Message Sent Successfully!</strong><br>
+                            Check your Telegram for the test message.<br>
+                            <strong>Your Chat ID: ${chatId}</strong><br>
+                            <strong>Copy this Chat ID and update your files!</strong>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Message Send Error:</strong><br>
+                            ${data.description}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Network Error:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
